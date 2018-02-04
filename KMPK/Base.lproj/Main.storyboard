@@ -10,6 +10,12 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--KMPK-->
         <scene sceneID="fGt-Eu-yD7">
@@ -66,6 +72,65 @@
                                             <outlet property="textView" destination="w5c-Hr-apI" id="W3o-i6-yzu"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchResultCell" id="eSt-wv-G10" customClass="SearchResultCollectionViewCell" customModule="KMPK" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="84" width="349" height="74"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMB-TC-ph3">
+                                                    <rect key="frame" x="109.5" y="8" width="131.5" height="21"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="McG-k3-n6U">
+                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="21"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(number)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8M-95-rWh">
+                                                            <rect key="frame" x="60" y="0.0" width="71.5" height="21"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="McG-k3-n6U" secondAttribute="bottom" id="BOu-nc-VuC"/>
+                                                        <constraint firstItem="M8M-95-rWh" firstAttribute="leading" secondItem="McG-k3-n6U" secondAttribute="trailing" constant="12" id="Ebj-Zy-IcU"/>
+                                                        <constraint firstAttribute="bottom" secondItem="M8M-95-rWh" secondAttribute="bottom" id="IoB-PJ-sHo"/>
+                                                        <constraint firstAttribute="trailing" secondItem="M8M-95-rWh" secondAttribute="trailing" id="n3O-xh-fhW"/>
+                                                        <constraint firstItem="M8M-95-rWh" firstAttribute="centerY" secondItem="McG-k3-n6U" secondAttribute="centerY" id="rPM-Qt-FD9"/>
+                                                        <constraint firstItem="McG-k3-n6U" firstAttribute="top" secondItem="UMB-TC-ph3" secondAttribute="top" id="rRG-iQ-sb9"/>
+                                                        <constraint firstItem="McG-k3-n6U" firstAttribute="leading" secondItem="UMB-TC-ph3" secondAttribute="leading" id="rpx-6I-40M"/>
+                                                        <constraint firstItem="M8M-95-rWh" firstAttribute="top" secondItem="UMB-TC-ph3" secondAttribute="top" id="sEW-1T-g41"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="directions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAB-Ti-2US">
+                                                    <rect key="frame" x="16" y="37" width="317" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="MAB-Ti-2US" firstAttribute="top" secondItem="UMB-TC-ph3" secondAttribute="bottom" constant="8" id="02u-Kt-Ngo"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="MAB-Ti-2US" secondAttribute="trailing" constant="8" id="4OL-Jf-OGK"/>
+                                            <constraint firstItem="MAB-Ti-2US" firstAttribute="leading" secondItem="eSt-wv-G10" secondAttribute="leadingMargin" constant="8" id="ANn-ks-2Rm"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="UMB-TC-ph3" secondAttribute="trailing" constant="2" id="KfI-wX-pe4"/>
+                                            <constraint firstItem="UMB-TC-ph3" firstAttribute="centerX" secondItem="eSt-wv-G10" secondAttribute="centerX" id="S06-Y4-zic"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="MAB-Ti-2US" secondAttribute="bottom" constant="8" id="VBP-by-EeY"/>
+                                            <constraint firstItem="UMB-TC-ph3" firstAttribute="top" secondItem="eSt-wv-G10" secondAttribute="top" constant="8" id="VjX-g6-985"/>
+                                            <constraint firstItem="UMB-TC-ph3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eSt-wv-G10" secondAttribute="leadingMargin" constant="2" id="aIG-iS-iTG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="McG-k3-n6U" id="pQG-Hn-dcN"/>
+                                            <outlet property="numberLabel" destination="M8M-95-rWh" id="ZEl-tV-CXD"/>
+                                            <outlet property="routesLabel" destination="MAB-Ti-2US" id="CZg-4e-iRG"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
@@ -118,7 +183,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="rawData" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4H-KS-m1a">
-                                                    <rect key="frame" x="24.5" y="16" width="300" height="57"/>
+                                                    <rect key="frame" x="24.5" y="16" width="300" height="42"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="smM-Js-fD1"/>

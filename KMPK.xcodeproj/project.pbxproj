@@ -43,6 +43,8 @@
 		8F7C0BBA202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */; };
 		8F7C0BBC2026384B00CCAD63 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BBB2026384B00CCAD63 /* StationController.swift */; };
 		8F7C0BBD2026384B00CCAD63 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BBB2026384B00CCAD63 /* StationController.swift */; };
+		8FFAC54520275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */; };
+		8FFAC54620275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,7 @@
 		8F7C0BB5202636B000CCAD63 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewController.swift; sourceTree = "<group>"; };
 		8F7C0BBB2026384B00CCAD63 /* StationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationController.swift; sourceTree = "<group>"; };
+		8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,14 +127,13 @@
 			children = (
 				8F6167E8201DF16C00FA3073 /* AppDelegate.swift */,
 				8F61681D201E54E100FA3073 /* Log.swift */,
-				8F6167EA201DF16C00FA3073 /* SearchViewController.swift */,
+				8FFAC5422027495700C3160A /* View Controllers */,
 				8F7C0BAC2026112900CCAD63 /* SearchController.swift */,
-				8F7C0BAF202614E700CCAD63 /* ResultsCollectionViewController.swift */,
-				8F7C0BB5202636B000CCAD63 /* DetailsViewController.swift */,
-				8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */,
 				8F7C0BBB2026384B00CCAD63 /* StationController.swift */,
+				8F7C0BAF202614E700CCAD63 /* ResultsCollectionViewController.swift */,
+				8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */,
+				8FFAC54320275E8A00C3160A /* Collection Cells */,
 				8F6167EC201DF16C00FA3073 /* Main.storyboard */,
-				8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */,
 				8F6167F1201DF16C00FA3073 /* LaunchScreen.storyboard */,
 				8F6167EF201DF16C00FA3073 /* Assets.xcassets */,
 				8F6167F4201DF16C00FA3073 /* Info.plist */,
@@ -162,6 +164,24 @@
 				8F616811201E068500FA3073 /* APICallback.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		8FFAC5422027495700C3160A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F6167EA201DF16C00FA3073 /* SearchViewController.swift */,
+				8F7C0BB5202636B000CCAD63 /* DetailsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8FFAC54320275E8A00C3160A /* Collection Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */,
+				8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */,
+			);
+			path = "Collection Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +294,7 @@
 				8F7C0BAD2026112900CCAD63 /* SearchController.swift in Sources */,
 				8F7C0BA7202608B900CCAD63 /* Queries.swift in Sources */,
 				8F61681E201E54E100FA3073 /* Log.swift in Sources */,
+				8FFAC54520275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */,
 				8F61680C201DF2C400FA3073 /* APIQuery.swift in Sources */,
 				8F616818201E267600FA3073 /* APIConfig.swift in Sources */,
 				8F7C0BB0202614E700CCAD63 /* ResultsCollectionViewController.swift in Sources */,
@@ -299,6 +320,7 @@
 				8F6167FE201DF16C00FA3073 /* KMPKTests.swift in Sources */,
 				8F7C0BBA202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
 				8F7C0BB1202614E700CCAD63 /* ResultsCollectionViewController.swift in Sources */,
+				8FFAC54620275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */,
 				8F616816201E114C00FA3073 /* Codables.swift in Sources */,
 				8F7C0BAE2026112900CCAD63 /* SearchController.swift in Sources */,
 				8F61681C201E27CE00FA3073 /* APIRouter.swift in Sources */,

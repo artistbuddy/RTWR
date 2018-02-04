@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
     private(set) var searchController: SearchController!
     private(set) var resultsController: ResultsCollectionViewController!
     
-    private var selectedStation: StationShort?
+    private var selectedResult: SearchQueryResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,16 +57,16 @@ class SearchViewController: UIViewController {
         self.searchTextField.resignFirstResponder()
         
         if let destination = segue.destination as? DetailsViewController, segue.identifier == "details" {
-            destination.id = self.selectedStation?.symbol
-            destination.title = self.selectedStation?.name
+            destination.id = self.selectedResult?.stationID
+            destination.title = self.selectedResult?.stationName
         }
     }
 }
 
 // MARK:- ResultsCollectionViewControllerDelegate
 extension SearchViewController: ResultsCollectionViewControllerDelegate {
-    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectStation station: StationShort) {
-        self.selectedStation = station
+    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: SearchQueryResult) {
+        self.selectedResult = result
         performSegue(withIdentifier: "details", sender: nil)
     }
     
