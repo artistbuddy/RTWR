@@ -9,14 +9,14 @@
 import UIKit
 
 class DetailsCollectionViewController: NSObject {
-    private var flowLayout: UICollectionViewFlowLayout = {
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: 1, height: 1)
         return layout
     }()
     let collectionView: UICollectionView
     
-    private var dataSource = [BoardDetails]()
+    private var dataSource = [StationSearchResults]()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -37,14 +37,19 @@ extension DetailsCollectionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RawDataCollectionViewCell.cellID2, for: indexPath) as? RawDataCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsNormalCollectionViewCell.cellID, for: indexPath) as? DetailsNormalCollectionViewCell else {
             fatalError()
         }
         
-        var text = String()
-        dump(dataSource[indexPath.row], to: &text)
+        let data = self.dataSource[indexPath.row]
         
-        cell.textView.text = text
+        cell.cellWidth = self.collectionView.frame.width - 150
+        cell.airConditioningLabel.isHidden = !(data.airConditioning)
+        cell.disabledFacilitiesLabel.isHidden = !(data.disabledFacilities)
+        cell.directionLabel.text = data.direction
+        cell.lineLabel.text = data.line
+        cell.lastStopLabel.text = data.lastStop
+        cell.estimatedMinutesLabel.text = String(describing: data.estimatedMinutes)
         
         return cell
     }
@@ -57,13 +62,13 @@ extension DetailsCollectionViewController: UICollectionViewDelegate {
 
 // MARK:- UICollectionViewDelegateFlowLayout
 extension DetailsCollectionViewController: UICollectionViewDelegateFlowLayout {
-    
+
 }
 
 // MARK:- StationControllerDelegate
 extension DetailsCollectionViewController: StationControllerDelegate {
-    func stationController(_ controller: StationController, board: [BoardDetails]) {
-        self.dataSource = board
+    func stationController(_ controller: StationController, station: [StationSearchResults]) {
+        self.dataSource = station
         self.collectionView.reloadData()
     }
 }

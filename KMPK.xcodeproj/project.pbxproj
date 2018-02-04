@@ -45,6 +45,8 @@
 		8F7C0BBD2026384B00CCAD63 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BBB2026384B00CCAD63 /* StationController.swift */; };
 		8FFAC54520275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */; };
 		8FFAC54620275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */; };
+		8FFAC548202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC547202790F300C3160A /* DetailsNormalCollectionViewCell.swift */; };
+		8FFAC549202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC547202790F300C3160A /* DetailsNormalCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,7 @@
 		8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewController.swift; sourceTree = "<group>"; };
 		8F7C0BBB2026384B00CCAD63 /* StationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationController.swift; sourceTree = "<group>"; };
 		8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FFAC547202790F300C3160A /* DetailsNormalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNormalCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,7 @@
 			children = (
 				8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */,
 				8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */,
+				8FFAC547202790F300C3160A /* DetailsNormalCollectionViewCell.swift */,
 			);
 			path = "Collection Cells";
 			sourceTree = "<group>";
@@ -288,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F616815201E114C00FA3073 /* Codables.swift in Sources */,
+				8FFAC548202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */,
 				8F7C0BB9202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
 				8F7C0BAA20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */,
 				8F61681B201E27CE00FA3073 /* APIRouter.swift in Sources */,
@@ -316,6 +321,7 @@
 				8F61680A201DF1CD00FA3073 /* APIController.swift in Sources */,
 				8F616810201DF3F400FA3073 /* APIMethod.swift in Sources */,
 				8F61681F201E54E100FA3073 /* Log.swift in Sources */,
+				8FFAC549202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */,
 				8F61680D201DF2C400FA3073 /* APIQuery.swift in Sources */,
 				8F6167FE201DF16C00FA3073 /* KMPKTests.swift in Sources */,
 				8F7C0BBA202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
