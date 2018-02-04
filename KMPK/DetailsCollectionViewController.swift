@@ -43,7 +43,7 @@ extension DetailsCollectionViewController: UICollectionViewDataSource {
         
         let data = self.dataSource[indexPath.row]
         
-        cell.cellWidth = self.collectionView.frame.width - 150
+        cell.cellWidth = self.collectionView.frame.width - 50
         cell.airConditioningLabel.isHidden = !(data.airConditioning)
         cell.disabledFacilitiesLabel.isHidden = !(data.disabledFacilities)
         cell.directionLabel.text = data.direction
