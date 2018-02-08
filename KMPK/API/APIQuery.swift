@@ -13,6 +13,7 @@ protocol APIQuery {
     
     var path: String { get }
     var parameters: [String: String]? { get }
+    var router: APIRouter { get }
 }
 
 extension APIQuery {
@@ -21,7 +22,7 @@ extension APIQuery {
     }
     
     private var url: URL {
-        var components = URLComponents()
+        var components = URLComponents(url: self.router.baseURL, resolvingAgainstBaseURL: true)!
         
         components.path = self.path
         

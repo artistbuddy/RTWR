@@ -15,12 +15,14 @@ struct SearchStationQuery: APIQuery {
         return ["term" : self.query]
     }
     var path: String {
-        return "ws/board/post/"
+        return "/ws/board/post/"
     }
+    var router: APIRouter
     
     private let query: String
     
-    init(query: String) {
+    init(query: String, router: APIRouter = APIConfig.tram) {
+        self.router = router
         self.query = query
     }
 }
@@ -30,12 +32,14 @@ struct StationBoardQuery: APIQuery {
     
     var parameters: [String : String]? = nil
     var path: String {
-        return "ws/board/show/" + self.id
+        return "/ws/board/show/" + self.id
     }
+    var router: APIRouter
     
     private let id: String
     
-    init(id: String) {
+    init(id: String, router: APIRouter = APIConfig.tram) {
+        self.router = router
         self.id = id
     }
 }

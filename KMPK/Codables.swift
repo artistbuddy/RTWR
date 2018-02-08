@@ -53,16 +53,3 @@ struct StationShort: Codable {
     let name: String
     let lines: [StationLines]
 }
-
-
-class Dupa {
-    func x() {
-        let query = SearchStationQuery(query: "galeria")
-        
-        APIController(config: APIRouter.tram).execute(query, success: { (result) in
-            print(result)
-        }) { (error) in
-            print(error)
-        }
-    }
-}

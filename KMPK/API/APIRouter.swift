@@ -1,5 +1,5 @@
 //
-//  APIRouter.swift
+//  APIConfig.swift
 //  KMPK
 //
 //  Created by Karol Bukowski on 28.01.2018.
@@ -8,13 +8,6 @@
 
 import Foundation
 
-enum APIRouter: APIConfig {
-    case tram
-    
-    var baseURL: URL {
-        switch self {
-        case .tram:
-            return URL(string: "http://tram.wroclaw.pl")!
-        }
-    }
+protocol APIRouter {
+    var baseURL: URL { get }
 }

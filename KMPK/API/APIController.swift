@@ -9,22 +9,19 @@
 import Foundation
 
 class APIController {
-    static let shared = APIController(config: APIRouter.tram)
+    static let shared = APIController(auth: AuthController.shared)
     
     private let session = URLSession.shared
     private let jsonDecoder = JSONDecoder()
-    private let config: APIConfig
+    private let auth: AuthController
     
-    init(config: APIConfig) {
-        self.config = config
+    init(auth: AuthController) {
+        self.auth = auth
     }
     
     func execute<Query: APIQuery, Result>(_ query: Query, success: APIQueryCallback<Result>?, failure: APIFailureCallback) where Result == Query.Result {
         
-        var urlRequest = query.urlRequest
-        urlRequest.url = URL(string: urlRequest.url!.absoluteString, relativeTo: self.config.baseURL)
-        
-        let task = self.session.dataTask(with: urlRequest) { [jsonDecoder] (data, response, error) in
+        let task = self.session.dataTask(with: query.urlRequest) { [jsonDecoder] (data, response, error) in
             
             if let error = error {
                 failure?(error.localizedDescription)
