@@ -10,11 +10,14 @@ import Foundation
 
 enum APIConfig: APIRouter {
     case tram
+    case impk
     
     var baseURL: URL {
         switch self {
         case .tram:
             return URL(string: "http://tram.wroclaw.pl")!
+        case .impk:
+            return URL(string: "https://62.233.178.84:8088")!
         }
     }
 }
