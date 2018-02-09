@@ -11,7 +11,9 @@ import Foundation
 class APIController {
     static let shared = APIController(auth: AuthController.shared)
     
-    private let session = URLSession.shared
+    private var session: URLSession {
+        return URLSession(configuration: URLSessionConfiguration.default, delegate: self.auth, delegateQueue: nil)
+    }
     private let jsonDecoder = JSONDecoder()
     private let auth: AuthController
     
