@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Log {
+public class APILog {
     public static func debug(_ items: Any...) {
         #if DEBUG
             print(items)            

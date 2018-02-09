@@ -53,14 +53,14 @@ class StationController {
     func show(id: String) {
         let query = StationBoardQuery(id: id)
         
-        APIController.shared.execute(query, success: { [weak self] (results) in            
+        Session.api.execute(query, success: { [weak self] (results) in            
             let station = self?.parseShow(result: results)
             
             DispatchQueue.main.async {
                 self?.delegate?.stationController(self!, station: station!)
             }
         }) { (error) in
-            Log.debug(error)
+            APILog.debug(error)
         }
         
     }

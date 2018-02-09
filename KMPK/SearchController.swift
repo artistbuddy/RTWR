@@ -39,7 +39,7 @@ class SearchController: NSObject {
     func search(query: String) {
         let query = SearchStationQuery(query: query)
         
-        APIController.shared.execute(query, success: { [weak self] (result) in
+        Session.api.execute(query, success: { [weak self] (result) in
             
             let parsed = self?.parseSearch(result: result)
             
@@ -48,7 +48,7 @@ class SearchController: NSObject {
             }
             
         }) { (error) in
-            Log.debug(error)
+            APILog.debug(error)
         }
     }
     

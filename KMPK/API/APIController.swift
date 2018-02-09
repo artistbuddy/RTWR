@@ -8,16 +8,18 @@
 
 import Foundation
 
-class APIController {
-    static let shared = APIController(auth: AuthController.shared)
+
+
+class APIController: APIProtocol {
+    static let shared = APIController(auth: nil)
     
     private var session: URLSession {
         return URLSession(configuration: URLSessionConfiguration.default, delegate: self.auth, delegateQueue: nil)
     }
     private let jsonDecoder = JSONDecoder()
-    private let auth: AuthController
+    private let auth: APIAuth?
     
-    init(auth: AuthController) {
+    required init(auth: APIAuth?) {
         self.auth = auth
     }
     
@@ -33,7 +35,7 @@ class APIController {
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
                 failure?(String(response.statusCode))
             } else {
-                Log.debug("APIController.exectue() Response is nil ")
+                APILog.debug("APIController.exectue() Response is nil ")
             }
             
             if let data = data {
@@ -44,7 +46,7 @@ class APIController {
                     failure?(String(describing: error))
                 }
             }  else {
-                Log.debug("APIController.exectue() Data is nil ")
+                APILog.debug("APIController.exectue() Data is nil ")
             }
         }
         

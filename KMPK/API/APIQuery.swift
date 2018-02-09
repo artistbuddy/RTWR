@@ -44,7 +44,7 @@ extension APIQuery {
     
     var urlRequest: URLRequest {
         var request = URLRequest(url: self.url)
-        
+
         request.httpMethod = Self.httpMethod.rawValue
         
         return request
