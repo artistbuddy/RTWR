@@ -9,5 +9,5 @@
 import Foundation
 
 typealias APIQueryCallback<T> = (_ result: T) -> Void
-typealias APIFailureCallback = ((_ message: String) -> Void)?
+typealias APIFailureCallback = ((_ message: String) -> Void)
 

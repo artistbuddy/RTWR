@@ -38,8 +38,8 @@ class SearchController: NSObject {
     
     func search(query: String) {
         let query = SearchStationQuery(query: query)
-        
-        Session.api.execute(query, success: { [weak self] (result) in
+
+        Session.api.execute(query, successJSON: { [weak self] (result) in
             
             let parsed = self?.parseSearch(result: result)
             

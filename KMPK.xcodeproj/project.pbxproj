@@ -17,6 +17,7 @@
 		8F39CB27202DC29500F91C89 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39CB25202DC29500F91C89 /* APIProtocol.swift */; };
 		8F39CB2F202DC8F300F91C89 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39CB2E202DC8F300F91C89 /* Session.swift */; };
 		8F39CB30202DC8F300F91C89 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39CB2E202DC8F300F91C89 /* Session.swift */; };
+		8F39CB32202DEEA500F91C89 /* APIQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39CB31202DEEA500F91C89 /* APIQuery.swift */; };
 		8F6167E9201DF16C00FA3073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6167E8201DF16C00FA3073 /* AppDelegate.swift */; };
 		8F6167EB201DF16C00FA3073 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6167EA201DF16C00FA3073 /* SearchViewController.swift */; };
 		8F6167EE201DF16C00FA3073 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F6167EC201DF16C00FA3073 /* Main.storyboard */; };
@@ -25,8 +26,8 @@
 		8F6167FE201DF16C00FA3073 /* KMPKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6167FD201DF16C00FA3073 /* KMPKTests.swift */; };
 		8F616809201DF1CD00FA3073 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F616808201DF1CD00FA3073 /* APIController.swift */; };
 		8F61680A201DF1CD00FA3073 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F616808201DF1CD00FA3073 /* APIController.swift */; };
-		8F61680C201DF2C400FA3073 /* APIQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61680B201DF2C400FA3073 /* APIQuery.swift */; };
-		8F61680D201DF2C400FA3073 /* APIQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61680B201DF2C400FA3073 /* APIQuery.swift */; };
+		8F61680C201DF2C400FA3073 /* APIJSONQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61680B201DF2C400FA3073 /* APIJSONQuery.swift */; };
+		8F61680D201DF2C400FA3073 /* APIJSONQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61680B201DF2C400FA3073 /* APIJSONQuery.swift */; };
 		8F61680F201DF3F400FA3073 /* APIMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61680E201DF3F400FA3073 /* APIMethod.swift */; };
 		8F616810201DF3F400FA3073 /* APIMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61680E201DF3F400FA3073 /* APIMethod.swift */; };
 		8F616812201E068500FA3073 /* APICallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F616811201E068500FA3073 /* APICallback.swift */; };
@@ -75,6 +76,7 @@
 		8F39CB1F202DB6B700F91C89 /* APIAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuth.swift; sourceTree = "<group>"; };
 		8F39CB25202DC29500F91C89 /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		8F39CB2E202DC8F300F91C89 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		8F39CB31202DEEA500F91C89 /* APIQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIQuery.swift; sourceTree = "<group>"; };
 		8F6167E5201DF16C00FA3073 /* KMPK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMPK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6167E8201DF16C00FA3073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F6167EA201DF16C00FA3073 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +88,7 @@
 		8F6167FD201DF16C00FA3073 /* KMPKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMPKTests.swift; sourceTree = "<group>"; };
 		8F6167FF201DF16C00FA3073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F616808201DF1CD00FA3073 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		8F61680B201DF2C400FA3073 /* APIQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIQuery.swift; sourceTree = "<group>"; };
+		8F61680B201DF2C400FA3073 /* APIJSONQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIJSONQuery.swift; sourceTree = "<group>"; };
 		8F61680E201DF3F400FA3073 /* APIMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethod.swift; sourceTree = "<group>"; };
 		8F616811201E068500FA3073 /* APICallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallback.swift; sourceTree = "<group>"; };
 		8F616814201E114C00FA3073 /* Codables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codables.swift; sourceTree = "<group>"; };
@@ -179,7 +181,8 @@
 				8F616808201DF1CD00FA3073 /* APIController.swift */,
 				8F39CB25202DC29500F91C89 /* APIProtocol.swift */,
 				8F616817201E267600FA3073 /* APIRouter.swift */,
-				8F61680B201DF2C400FA3073 /* APIQuery.swift */,
+				8F61680B201DF2C400FA3073 /* APIJSONQuery.swift */,
+				8F39CB31202DEEA500F91C89 /* APIQuery.swift */,
 				8F61680E201DF3F400FA3073 /* APIMethod.swift */,
 				8F616811201E068500FA3073 /* APICallback.swift */,
 				8F39CB19202DB27600F91C89 /* APICredential.swift */,
@@ -313,6 +316,7 @@
 			files = (
 				8F616815201E114C00FA3073 /* Codables.swift in Sources */,
 				8FFAC548202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */,
+				8F39CB32202DEEA500F91C89 /* APIQuery.swift in Sources */,
 				8F7C0BB9202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
 				8F7C0BAA20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */,
 				8F61681B201E27CE00FA3073 /* APIConfig.swift in Sources */,
@@ -320,7 +324,7 @@
 				8F7C0BA7202608B900CCAD63 /* Queries.swift in Sources */,
 				8F61681E201E54E100FA3073 /* APILog.swift in Sources */,
 				8FFAC54520275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */,
-				8F61680C201DF2C400FA3073 /* APIQuery.swift in Sources */,
+				8F61680C201DF2C400FA3073 /* APIJSONQuery.swift in Sources */,
 				8F616818201E267600FA3073 /* APIRouter.swift in Sources */,
 				8F7C0BB0202614E700CCAD63 /* ResultsCollectionViewController.swift in Sources */,
 				8F39CB1A202DB27600F91C89 /* APICredential.swift in Sources */,
@@ -349,7 +353,7 @@
 				8F39CB1E202DB4FC00F91C89 /* Credentials.swift in Sources */,
 				8F61681F201E54E100FA3073 /* APILog.swift in Sources */,
 				8FFAC549202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */,
-				8F61680D201DF2C400FA3073 /* APIQuery.swift in Sources */,
+				8F61680D201DF2C400FA3073 /* APIJSONQuery.swift in Sources */,
 				8F6167FE201DF16C00FA3073 /* KMPKTests.swift in Sources */,
 				8F7C0BBA202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
 				8F39CB21202DB6B700F91C89 /* APIAuth.swift in Sources */,

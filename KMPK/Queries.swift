@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SearchStationQuery: APIQuery {
+struct SearchStationQuery: APIJSONQuery {
     typealias Result = [StationShort]
     
     var parameters: [String : String]? {
@@ -27,7 +27,7 @@ struct SearchStationQuery: APIQuery {
     }
 }
 
-struct StationBoardQuery: APIQuery {
+struct StationBoardQuery: APIJSONQuery {
     typealias Result = [Int : StationBoard]
     
     var parameters: [String : String]? = nil

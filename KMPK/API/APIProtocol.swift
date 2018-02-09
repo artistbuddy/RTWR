@@ -9,7 +9,9 @@
 import Foundation
 
 protocol APIProtocol {
-    func execute<Query: APIQuery, Result>(_ query: Query, success: APIQueryCallback<Result>?, failure: APIFailureCallback) where Result == Query.Result
+    func execute<Query: APIJSONQuery, Result>(_ query: Query, successJSON: @escaping APIQueryCallback<Result>, failure: APIFailureCallback?) where Result == Query.Result
+    
+    func execute(_ query: APIQuery, success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?)
     
     init(auth: APIAuth?)
 }

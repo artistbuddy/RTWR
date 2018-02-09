@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 class APIController: APIProtocol {
     static let shared = APIController(auth: nil)
     
@@ -23,9 +21,23 @@ class APIController: APIProtocol {
         self.auth = auth
     }
     
-    func execute<Query: APIQuery, Result>(_ query: Query, success: APIQueryCallback<Result>?, failure: APIFailureCallback) where Result == Query.Result {
+    func execute<Query: APIJSONQuery, Result>(_ query: Query, successJSON: @escaping APIQueryCallback<Result>, failure: APIFailureCallback?) where Result == Query.Result {
         
-        let task = self.session.dataTask(with: query.urlRequest) { [jsonDecoder] (data, response, error) in
+        execute(query, success: { [jsonDecoder] (data) in
+            do {
+                let result = try jsonDecoder.decode(Result.self, from: data as! Data)
+                successJSON(result)
+            } catch let error {
+                // Serialization error
+                failure?(String(describing: error))
+            }
+        }, failure: failure)
+
+    }
+    
+    func execute(_ query: APIQuery, success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?) {
+        
+        let task = self.session.dataTask(with: query.urlRequest) { (data, response, error) in
             
             if let error = error {
                 failure?(error.localizedDescription)
@@ -39,12 +51,7 @@ class APIController: APIProtocol {
             }
             
             if let data = data {
-                do {
-                    let result = try jsonDecoder.decode(Result.self, from: data)
-                    success?(result)
-                } catch let error {
-                    failure?(String(describing: error))
-                }
+                success(data)
             }  else {
                 APILog.debug("APIController.exectue() Data is nil ")
             }
