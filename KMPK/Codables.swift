@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK:- JSON
 struct StationBoard: Codable {
     let name: String
     let direction: String
@@ -52,4 +53,23 @@ struct StationShort: Codable {
     let symbol: String
     let name: String
     let lines: [StationLines]
+}
+
+// MARK:- CSV
+struct OPLivePositions {
+    let id: Int
+    let vehicle: Int
+    let plate: String
+    let squad: String
+    let line: String
+    let lat: Double
+    let long: Double
+    let updateDate: Date
+}
+
+struct OPStationPositions {
+    let id: Int
+    let type: String
+    let lat: Double
+    let long: Double
 }

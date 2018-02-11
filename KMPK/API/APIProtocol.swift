@@ -11,6 +11,8 @@ import Foundation
 protocol APIProtocol {
     func execute<Query: APIJSONQuery, Result>(_ query: Query, successJSON: @escaping APIQueryCallback<Result>, failure: APIFailureCallback?) where Result == Query.Result
     
+    func execute<Query: APICSVQuery, Result>(_ query: Query, successCSV: @escaping APIQueryCallback<Result>, failure: APIFailureCallback?) where Result == Query.Result
+    
     func execute(_ query: APIQuery, success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?)
     
     init(auth: APIAuth?)

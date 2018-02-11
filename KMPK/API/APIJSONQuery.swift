@@ -11,9 +11,3 @@ import Foundation
 protocol APIJSONQuery: APIQuery {
     associatedtype Result: Decodable
 }
-
-extension APIJSONQuery {
-    var method: APIMethod {
-        return APIMethod.get
-    }
-}

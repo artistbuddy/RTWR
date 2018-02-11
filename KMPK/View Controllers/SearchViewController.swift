@@ -18,8 +18,7 @@ class SearchViewController: UIViewController {
     private var selectedResult: SearchQueryResult?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
         setupView()
     }
     

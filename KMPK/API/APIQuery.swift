@@ -19,7 +19,7 @@ extension APIQuery {
     private var url: URL {
         var components = URLComponents(url: self.router.baseURL, resolvingAgainstBaseURL: true)!
         
-        components.path = self.path
+        components.path = components.path + self.path
         
         if let parameters = self.parameters {
             components.queryItems = []
@@ -35,6 +35,10 @@ extension APIQuery {
         }
         
         return url
+    }
+    
+    var method: APIMethod {
+        return APIMethod.get
     }
     
     var urlRequest: URLRequest {

@@ -20,6 +20,8 @@ class APIAuth: NSObject, URLSessionTaskDelegate {
         
         let space = challenge.protectionSpace
         let method = space.authenticationMethod
+        
+        print(method)
 
         if method == NSURLAuthenticationMethodServerTrust {
             // FIXME: implement NSURLAuthenticationMethodServerTrust

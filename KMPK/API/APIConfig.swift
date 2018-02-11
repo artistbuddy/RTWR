@@ -11,6 +11,7 @@ import Foundation
 enum APIConfig: APIRouter, APICredential {
     case tram
     case impk
+    case op
     
     var baseURL: URL {
         switch self {
@@ -18,6 +19,8 @@ enum APIConfig: APIRouter, APICredential {
             return URL(string: "http://tram.wroclaw.pl")!
         case .impk:
             return URL(string: "https://62.233.178.84:8088")!
+        case .op:
+            return URL(string: "https://www.wroclaw.pl/open-data")!
         }
     }
     

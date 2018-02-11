@@ -43,3 +43,17 @@ struct StationBoardQuery: APIJSONQuery {
         self.id = id
     }
 }
+
+struct OPLivePositionsQuery: APICSVQuery {    
+    typealias Result = [OPLivePositions]
+    var path: String = "/datastore/dump/17308285-3977-42f7-81b7-fdd168c210a2"
+    var parameters: [String : String]? = nil
+    var router: APIRouter = APIConfig.op
+}
+
+struct OPStationPositionsQuery: APICSVQuery {
+    typealias Result = [OPStationPositions]
+    var path: String = "/dataset/e3002397-f22b-4aa1-a7eb-bc70af83dba0/resource/003e5b6a-233d-4ad4-bac5-9bf96bc05ccc/download/slupkiwspolrzedne.csv"
+    var parameters: [String : String]? = nil
+    var router: APIRouter = APIConfig.op
+}

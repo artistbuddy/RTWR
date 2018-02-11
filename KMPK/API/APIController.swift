@@ -9,12 +9,13 @@
 import Foundation
 
 class APIController: APIProtocol {
-    static let shared = APIController(auth: nil)
+    static let shared: APIProtocol = APIController(auth: nil)
     
     private var session: URLSession {
         return URLSession(configuration: URLSessionConfiguration.default, delegate: self.auth, delegateQueue: nil)
     }
     private let jsonDecoder = JSONDecoder()
+    private let csvDecoder = CSVDecoder()
     private let auth: APIAuth?
     
     required init(auth: APIAuth?) {
@@ -22,10 +23,9 @@ class APIController: APIProtocol {
     }
     
     func execute<Query: APIJSONQuery, Result>(_ query: Query, successJSON: @escaping APIQueryCallback<Result>, failure: APIFailureCallback?) where Result == Query.Result {
-        
         execute(query, success: { [jsonDecoder] (data) in
             do {
-                let result = try jsonDecoder.decode(Result.self, from: data as! Data)
+                let result = try jsonDecoder.decode(Result.self, from: data)
                 successJSON(result)
             } catch let error {
                 // Serialization error
@@ -35,8 +35,21 @@ class APIController: APIProtocol {
 
     }
     
-    func execute(_ query: APIQuery, success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?) {
+    func execute<Query: APICSVQuery, Result>(_ query: Query, successCSV: @escaping APIQueryCallback<Result>, failure: APIFailureCallback?) where Result == Query.Result {
         
+        execute(query, success: { [csvDecoder] (data) in
+            do {
+                let result = try csvDecoder.decode(type: Result.self, from: data)
+                successCSV(result)
+            } catch let error {
+                // Serialization error
+                failure?(String(describing: error))
+            }
+            }, failure: failure)
+        
+    }
+    
+    func execute(_ query: APIQuery, success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?) {
         let task = self.session.dataTask(with: query.urlRequest) { (data, response, error) in
             
             if let error = error {
