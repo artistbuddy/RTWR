@@ -16,7 +16,7 @@ class DetailsCollectionViewController: NSObject {
     }()
     let collectionView: UICollectionView
     
-    private var dataSource = [StationSearchResults]()
+    private var dataSource = [BoardData]()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -67,7 +67,7 @@ extension DetailsCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK:- StationControllerDelegate
 extension DetailsCollectionViewController: StationControllerDelegate {
-    func stationController(_ controller: StationController, station: [StationSearchResults]) {
+    func stationController(_ controller: StationController, station: [BoardData]) {
         self.dataSource = station
         self.collectionView.reloadData()
     }

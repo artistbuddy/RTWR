@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchQueryResult {
+protocol StationData {
     typealias Line = String
     typealias Direction = String
     
@@ -17,7 +17,7 @@ protocol SearchQueryResult {
     var routes: [Direction : Line] { get }
 }
 
-struct SearchResultData: SearchQueryResult {
+fileprivate struct ResultData: StationData {
     var stationID: String
     var stationName: String
     var routes: [Direction : Line]
@@ -30,14 +30,14 @@ struct SearchResultData: SearchQueryResult {
 }
 
 protocol SearchControllerDelegate: class {
-    func searchController(_ controller: SearchController, result: [SearchQueryResult])
+    func searchController(_ controller: SearchController, result: [StationData])
 }
 
 class SearchController: NSObject {
     weak var delegate: SearchControllerDelegate?
     
     func search(query: String) {
-        let query = SearchStationQuery(query: query)
+        let query = TSearchStationQuery(query: query)
 
         Session.api.execute(query, successJSON: { [weak self] (result) in
             
@@ -52,8 +52,8 @@ class SearchController: NSObject {
         }
     }
     
-    private func parseSearch(result: SearchStationQuery.Result) -> [SearchResultData] {
-        var output = [SearchResultData]()
+    private func parseSearch(result: TSearchStationQuery.Result) -> [ResultData] {
+        var output = [ResultData]()
 
         for station in result {
             var routes = [String : String]()
@@ -68,7 +68,7 @@ class SearchController: NSObject {
                 
             }
             
-            let data = SearchResultData(id: station.symbol, name: station.name, routes: routes)
+            let data = ResultData(id: station.symbol, name: station.name, routes: routes)
             
             output.append(data)
         }

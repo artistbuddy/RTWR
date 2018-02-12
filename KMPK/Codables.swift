@@ -9,14 +9,14 @@
 import Foundation
 
 // MARK:- JSON
-struct StationBoard: Codable {
+struct TStationBoard: Codable {
     let name: String
     let direction: String
     let id: String
-    let board: [BoardDetails]
+    let board: [TBoardDetails]
 }
 
-struct BoardDetails: Codable {
+struct TBoardDetails: Codable {
     let line: String
     let minuteCount: Int
     let routeBegin: Bool
@@ -30,11 +30,11 @@ struct BoardDetails: Codable {
     let departure: String
     let scheduledDeparture: String
     let scheduledDepartureTime: String
-    let currentStop: StationDetails
-    let nextStop: StationDetails
+    let currentStop: TStationDetails
+    let nextStop: TStationDetails
 }
 
-struct StationDetails: Codable {
+struct TStationDetails: Codable {
     let s: String
     let x: Double
     let y: Double
@@ -44,15 +44,15 @@ struct StationDetails: Codable {
     let name: String
 }
 
-struct StationLines: Codable {
+struct TStationLines: Codable {
     let line: String
     let direction: String
 }
 
-struct StationShort: Codable {
+struct TStationShort: Codable {
     let symbol: String
     let name: String
-    let lines: [StationLines]
+    let lines: [TStationLines]
 }
 
 // MARK:- CSV

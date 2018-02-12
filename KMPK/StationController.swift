@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol StationSearchResults {
+protocol BoardData {
     var line: String { get }
     var direction: String { get }
     var lastStop: String { get }
@@ -21,7 +21,7 @@ protocol StationSearchResults {
     
 }
 
-struct StationResultData: StationSearchResults {
+fileprivate struct ResultData: BoardData {
     var line: String
     var direction: String
     var lastStop: String
@@ -32,7 +32,7 @@ struct StationResultData: StationSearchResults {
     var disabledFacilities: Bool
     var airConditioning: Bool
     
-    static let empty = StationResultData(line: "",
+    static let empty = ResultData(line: "",
                                           direction: "",
                                           lastStop: "",
                                           estimatedMinutes: 0,
@@ -44,14 +44,14 @@ struct StationResultData: StationSearchResults {
 }
 
 protocol StationControllerDelegate: class {
-    func stationController(_ controller: StationController, station: [StationSearchResults])
+    func stationController(_ controller: StationController, station: [BoardData])
 }
 
 class StationController {
     weak var delegate: StationControllerDelegate?
     
     func show(id: String) {
-        let query = StationBoardQuery(id: id)
+        let query = TStationBoardQuery(id: id)
         
         Session.api.execute(query, successJSON: { [weak self] (results) in
             let station = self?.parseShow(result: results)
@@ -65,15 +65,15 @@ class StationController {
         
     }
     
-    private func parseShow(result: StationBoardQuery.Result) -> [StationResultData] {
+    private func parseShow(result: TStationBoardQuery.Result) -> [ResultData] {
         guard let station = result.first?.value else {
             return []
         }
         
-        var output = [StationResultData]()
+        var output = [ResultData]()
         
         for board in station.board {
-            var data = StationResultData.empty
+            var data = ResultData.empty
             
             data.line = board.line
             data.direction = board.direction

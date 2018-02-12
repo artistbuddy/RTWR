@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
     private(set) var searchController: SearchController!
     private(set) var resultsController: ResultsCollectionViewController!
     
-    private var selectedResult: SearchQueryResult?
+    private var selectedResult: StationData?
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -64,7 +64,7 @@ class SearchViewController: UIViewController {
 
 // MARK:- ResultsCollectionViewControllerDelegate
 extension SearchViewController: ResultsCollectionViewControllerDelegate {
-    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: SearchQueryResult) {
+    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: StationData) {
         self.selectedResult = result
         performSegue(withIdentifier: "details", sender: nil)
     }

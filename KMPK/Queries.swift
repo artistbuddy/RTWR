@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct SearchStationQuery: APIJSONQuery {
-    typealias Result = [StationShort]
+// MARK: - Tram source queries
+struct TSearchStationQuery: APIJSONQuery {
+    typealias Result = [TStationShort]
     
     var parameters: [String : String]? {
         return ["term" : self.query]
@@ -27,8 +28,24 @@ struct SearchStationQuery: APIJSONQuery {
     }
 }
 
-struct StationBoardQuery: APIJSONQuery {
-    typealias Result = [Int : StationBoard]
+struct TAllStationsQuery: APIJSONQuery {
+    typealias Result = [TStationShort]
+    
+    var parameters: [String : String]? {
+        return ["term" : "+++"]
+    }
+    var path: String {
+        return "/ws/board/post/"
+    }
+    var router: APIRouter
+    
+    init(router: APIRouter = APIConfig.tram) {
+        self.router = router
+    }
+}
+
+struct TStationBoardQuery: APIJSONQuery {
+    typealias Result = [Int : TStationBoard]
     
     var parameters: [String : String]? = nil
     var path: String {
@@ -44,6 +61,11 @@ struct StationBoardQuery: APIJSONQuery {
     }
 }
 
+
+
+// MARK: - iMPK source queries
+
+// MARK: - Open Data source queries
 struct OPLivePositionsQuery: APICSVQuery {    
     typealias Result = [OPLivePositions]
     var path: String = "/datastore/dump/17308285-3977-42f7-81b7-fdd168c210a2"

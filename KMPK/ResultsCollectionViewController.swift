@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ResultsCollectionViewControllerDelegate: class {
-    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: SearchQueryResult)
+    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: StationData)
 }
 
 class ResultsCollectionViewController: NSObject {
@@ -23,7 +23,7 @@ class ResultsCollectionViewController: NSObject {
     }()
     let collectionView: UICollectionView
     
-    private var dataSource = [SearchQueryResult]()
+    private var dataSource = [StationData]()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -107,7 +107,7 @@ extension ResultsCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK:- SearchControllerDelegate
 extension ResultsCollectionViewController: SearchControllerDelegate {
-    func searchController(_ controller: SearchController, result: [SearchQueryResult]) {
+    func searchController(_ controller: SearchController, result: [StationData]) {
         self.dataSource = result
         self.collectionView.reloadData()
     }
