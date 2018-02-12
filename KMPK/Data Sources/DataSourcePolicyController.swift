@@ -30,8 +30,9 @@ final class DataSourcePolicyController {
     
     private init() { }
     
-    func getPolicy<T>(downloader: T.Type) -> DataSourcePolicy {
-        switch downloader {
+    func getPolicy<T>(dataSource: T.Type) -> DataSourcePolicy {
+        switch dataSource {
+        case is StationDataSource.Type: return .mixed
         default:
             return self.defaultPolicy
         }

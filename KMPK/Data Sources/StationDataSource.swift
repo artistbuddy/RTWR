@@ -8,8 +8,58 @@
 
 import Foundation
 
+struct Coordinates {
+    let latitude: Double
+    let longitute: Double
+    
+    init(lat: Double, long: Double) {
+        self.latitude = lat
+        self.longitute = long
+    }
+}
+
+enum StationType {
+    case bus, tram, both
+    
+    init?(t: String) {
+        switch t {
+        case "0": self = .tram
+        case "3": self = .bus
+        case "03": self = .both
+        default: return nil
+        }
+    }
+}
+
+protocol StationData {
+    var id: String { get }
+    var name: String { get }
+    var type: StationType { get }
+    var coordinates: Coordinates { get }
+    var routes: [StationRoute] { get }
+}
+
+protocol StationRoute {
+    var line: String { get }
+    var direction: String { get }
+}
+
+
 protocol StationDataSourceDelegate {
     func stationDataSource(didDownload: [StationData])
+}
+
+fileprivate struct ResultData: StationData {
+    var id: String = ""
+    var name: String = ""
+    var type: StationType = .bus
+    var coordinates: Coordinates = Coordinates(lat: 0, long: 0)
+    var routes: [StationRoute] = []
+}
+
+fileprivate struct RouteData {
+    var line: String = ""
+    var direction: String = ""
 }
 
 class StationDataSource: DataSourceDownloader {
@@ -25,13 +75,69 @@ class StationDataSource: DataSourceDownloader {
     
     func download(callback: DataSourceCallback?) {
         switch policy {
-        case .strict:
-            callback?(false, nil)
         case .mixed:
-            callback?(false, nil)
-        case .any:
-            callback?(false, nil)
+            downloadMixed(callback: callback)
+        default:
+            callback?(false, "Not found \(policy) policy")
         }
     }
 
+    private func downloadMixed(callback: DataSourceCallback?) {
+        let tquery = TAllStationsQuery()
+        let opquery = OPStationPositionsQuery()
+        
+        var tdata: [TStationShort]?
+        var opdata: [OPStationPositions]?
+        
+        let group = DispatchGroup()
+        
+        group.enter()
+        self.api.execute(tquery, successJSON: { (result) in
+            tdata = result
+            group.leave()
+        }) { (failure) in
+            callback?(false, failure)
+            group.leave()
+        }
+        
+        group.enter()
+        self.api.execute(opquery, successCSV: { (result) in
+            opdata = result
+            group.leave()
+        }) { (failure) in
+            callback?(false, failure)
+            group.leave()
+        }
+        
+        group.notify(queue: .global(qos: .background)) {
+            guard let tdata = tdata, var opdata = opdata else {
+                callback?(false, "Invalid data")
+                return
+            }
+            
+            var output = [ResultData]()
+            
+            for t in tdata {
+                
+                if let index = opdata.index(where: { String(describing: $0.id) == t.symbol }) {
+                    let op = opdata[index]
+                    opdata.remove(at: index)
+                    
+                    guard let type = StationType(t: op.type) else {
+                        APILog.debug("StationDataSource invalid op data \(op)")
+                        break
+                    }
+                    
+                    let result = ResultData(id: t.symbol, name: t.name, type: type, coordinates: Coordinates(lat: op.lat, long: op.long), routes: t.lines)
+                    output.append(result)
+                    
+                } else {
+                    APILog.debug("StationDataSource not found op station \(t.symbol)")
+                }
+            }
+
+            self.delegate?.stationDataSource(didDownload: output)
+            callback?(true, nil)
+        }
+    }
 }

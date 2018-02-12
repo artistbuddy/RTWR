@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ResultsCollectionViewControllerDelegate: class {
-    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: StationData)
+    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: SearchResultData)
 }
 
 class ResultsCollectionViewController: NSObject {
@@ -23,7 +23,7 @@ class ResultsCollectionViewController: NSObject {
     }()
     let collectionView: UICollectionView
     
-    private var dataSource = [StationData]()
+    private var dataSource = [SearchResultData]()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -53,8 +53,8 @@ extension ResultsCollectionViewController: UICollectionViewDataSource {
         let data = self.dataSource[indexPath.row]
         
         cell.cellWidth = self.collectionView.frame.width - 50
-        cell.nameLabel.text = data.stationName
-        cell.numberLabel.text = data.stationID
+        cell.nameLabel.text = data.name
+        cell.numberLabel.text = data.id
         
         cell.routesLabel.attributedText = prepare(routes: data.routes)
         
@@ -107,7 +107,7 @@ extension ResultsCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK:- SearchControllerDelegate
 extension ResultsCollectionViewController: SearchControllerDelegate {
-    func searchController(_ controller: SearchController, result: [StationData]) {
+    func searchController(_ controller: SearchController, result: [SearchResultData]) {
         self.dataSource = result
         self.collectionView.reloadData()
     }

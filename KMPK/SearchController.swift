@@ -8,29 +8,29 @@
 
 import UIKit
 
-protocol StationData {
+protocol SearchResultData {
     typealias Line = String
     typealias Direction = String
     
-    var stationID: String { get }
-    var stationName: String { get }
+    var id: String { get }
+    var name: String { get }
     var routes: [Direction : Line] { get }
 }
 
-fileprivate struct ResultData: StationData {
-    var stationID: String
-    var stationName: String
+fileprivate struct ResultData: SearchResultData {
+    var id: String
+    var name: String
     var routes: [Direction : Line]
     
     init(id: String, name: String, routes: [Direction : Line]) {
-        self.stationID = id
-        self.stationName = name
+        self.id = id
+        self.name = name
         self.routes = routes
     }
 }
 
 protocol SearchControllerDelegate: class {
-    func searchController(_ controller: SearchController, result: [StationData])
+    func searchController(_ controller: SearchController, result: [SearchResultData])
 }
 
 class SearchController: NSObject {
