@@ -10,4 +10,5 @@ import Foundation
 
 struct Session {
     static let api: APIProtocol = APIController(auth: APIAuth(credential: APIConfig.impk))
+    static let database: DatabaseAccess = DatabaseController()
 }

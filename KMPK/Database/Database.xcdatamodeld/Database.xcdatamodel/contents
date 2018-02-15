@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoreStation" representedClassName="CoreStation" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="routes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreStationRoute" syncable="YES"/>
+    </entity>
+    <entity name="CoreStationRoute" representedClassName="CoreStationRoute" syncable="YES" codeGenerationType="class">
+        <attribute name="direction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="line" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CoreStation" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="CoreStationRoute" positionX="-54" positionY="-9" width="128" height="30"/>
+    </elements>
+</model>

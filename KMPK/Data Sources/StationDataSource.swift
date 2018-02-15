@@ -19,7 +19,7 @@ struct Coordinates {
 }
 
 enum StationType {
-    case bus, tram, both
+    case tram, bus, both
     
     init?(t: String) {
         switch t {
@@ -27,6 +27,23 @@ enum StationType {
         case "3": self = .bus
         case "03": self = .both
         default: return nil
+        }
+    }
+    
+    init?(int16: Int16) {
+        switch int16 {
+        case 1: self = .tram
+        case 2: self = .bus
+        case 3: self = .both
+        default: return nil
+        }
+    }
+    
+    var toInt16: Int16 {
+        switch self {
+        case .tram: return 1
+        case .bus: return 2
+        case .both: return 3
         }
     }
 }
@@ -46,7 +63,7 @@ protocol StationRoute {
 
 
 protocol StationDataSourceDelegate {
-    func stationDataSource(didDownload: [StationData])
+    func stationDataSource(didDownload data: [StationData])
 }
 
 fileprivate struct ResultData: StationData {
