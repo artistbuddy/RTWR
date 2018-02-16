@@ -80,6 +80,8 @@ fileprivate struct RouteData {
 }
 
 class StationDataSource: DataSourceDownloader {
+    typealias Data = [StationData]
+    
     var delegate: StationDataSourceDelegate?
     
     let policy: DataSourcePolicy
@@ -90,16 +92,17 @@ class StationDataSource: DataSourceDownloader {
         self.policy = policy
     }
     
-    func download(callback: DataSourceCallback?) {
+    func download(success: @escaping (Data) -> Void, failure: APIFailureCallback?) {
         switch policy {
         case .mixed:
-            downloadMixed(callback: callback)
+            mixedPolicy(success: success, failure: failure)
         default:
-            callback?(false, "Not found \(policy) policy")
+            // should be fatalError(), data source need to be transparent
+            failure?(APIFailure.otherError(description: "Not found \(policy) policy", userInfo: nil))
         }
     }
 
-    private func downloadMixed(callback: DataSourceCallback?) {
+    private func mixedPolicy(success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?) {
         let tquery = TAllStationsQuery()
         let opquery = OPStationPositionsQuery()
         
@@ -112,8 +115,8 @@ class StationDataSource: DataSourceDownloader {
         self.api.execute(tquery, successJSON: { (result) in
             tdata = result
             group.leave()
-        }) { (failure) in
-            callback?(false, failure)
+        }) { (reason) in
+            failure?(reason)
             group.leave()
         }
         
@@ -121,14 +124,14 @@ class StationDataSource: DataSourceDownloader {
         self.api.execute(opquery, successCSV: { (result) in
             opdata = result
             group.leave()
-        }) { (failure) in
-            callback?(false, failure)
+        }) { (reason) in
+            failure?(reason)
             group.leave()
         }
         
         group.notify(queue: .global(qos: .background)) {
             guard let tdata = tdata, var opdata = opdata else {
-                callback?(false, "Invalid data")
+                failure?(APIFailure.invalidData)
                 return
             }
             
@@ -153,8 +156,7 @@ class StationDataSource: DataSourceDownloader {
                 }
             }
 
-            self.delegate?.stationDataSource(didDownload: output)
-            callback?(true, nil)
+            success(output)
         }
     }
 }

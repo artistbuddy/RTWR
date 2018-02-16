@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias DataSourceCallback = (_ success: Bool, _ message: String?) -> Void
-
 protocol DataSourceDownloader {
-    func download(callback: DataSourceCallback?)
+    associatedtype Data
+    
+    func download(success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?)
 }

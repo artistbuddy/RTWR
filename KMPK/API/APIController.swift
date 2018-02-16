@@ -28,8 +28,8 @@ class APIController: APIProtocol {
                 let result = try jsonDecoder.decode(Result.self, from: data)
                 successJSON(result)
             } catch let error {
-                // Serialization error
-                failure?(String(describing: error))
+                APILog.debug("APIController.exectue() serialization error: \(error)")
+                failure?(APIFailure.serializationError)
             }
         }, failure: failure)
 
@@ -42,8 +42,8 @@ class APIController: APIProtocol {
                 let result = try csvDecoder.decode(type: Result.self, from: data)
                 successCSV(result)
             } catch let error {
-                // Serialization error
-                failure?(String(describing: error))
+                APILog.debug("APIController.exectue() serialization error: \(error)")
+                failure?(APIFailure.serializationError)
             }
             }, failure: failure)
         
@@ -53,12 +53,12 @@ class APIController: APIProtocol {
         let task = self.session.dataTask(with: query.urlRequest) { (data, response, error) in
             
             if let error = error {
-                failure?(error.localizedDescription)
+                failure?(APIFailure.otherError(description: error.localizedDescription, userInfo: nil))
                 return
             }
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
-                failure?(String(response.statusCode))
+                failure?(APIFailure.serverError(code: response.statusCode))
             } else {
                 APILog.debug("APIController.exectue() Response is nil ")
             }
