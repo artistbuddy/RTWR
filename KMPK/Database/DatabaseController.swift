@@ -10,36 +10,60 @@ import Foundation
 import CoreData
 
 class DatabaseController {
-    var persistentContainer: NSPersistentContainer!
+    private let container: NSPersistentContainer!
+    private let queue : OperationQueue = {
+        let queue = OperationQueue.init();
+        queue.maxConcurrentOperationCount = 1;
+        return queue;
+    }()
     
-    public init() {
+    init() {
         let bundleIdentifier = "kb.KMPK"
+        let name = "Database"
         
         guard let bundle = Bundle(identifier: bundleIdentifier) else {
             fatalError("Missing bundle with id = \(bundleIdentifier)")
         }
         
-        guard let url = bundle.url(forResource: "Database", withExtension: "momd") else {
+        guard let url = bundle.url(forResource: name, withExtension: "momd") else {
             fatalError("Missing Database.momd")
         }
         
         guard let model = NSManagedObjectModel(contentsOf: url) else {
-            fatalError("Database.momd cannot be opened")
+            fatalError("\(name).momd cannot be opened")
         }
         
-        self.persistentContainer = NSPersistentContainer(name: "Database", managedObjectModel: model)
+        self.container = NSPersistentContainer(name: name, managedObjectModel: model)
+        self.container.viewContext.automaticallyMergesChangesFromParent = true
         
-        self.persistentContainer.loadPersistentStores { ( _ , error) in
+        self.container.loadPersistentStores { ( _ , error) in
             if let error = error {
                 fatalError("Failed to load store: \(error)")
             }
         }
     }
+
 }
 
-// MARK:- Database
-extension DatabaseController: DatabaseAccess {    
-    var viewContext: NSManagedObjectContext {
-        return self.persistentContainer.viewContext
+// MARK:- DatabaseAccess
+extension DatabaseController: DatabaseAccess {
+    func getWorkContext(_ closure: @escaping (_ context: NSManagedObjectContext) -> Void, complition: ((_ success: Bool) -> Void)?) {
+        self.queue.addOperation {
+            let context = self.container.newBackgroundContext();
+            context.performAndWait {
+                closure(context)
+                do {
+                    try context.save()
+                    complition?(true)
+                } catch let error {
+                    APILog.debug("DatabaseController save error: \(error)")
+                    complition?(false)
+                }
+            }
+        }
+    }
+    
+    var readContext: NSManagedObjectContext {
+        return self.container.viewContext
     }
 }

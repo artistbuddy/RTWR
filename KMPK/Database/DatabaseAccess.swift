@@ -10,5 +10,7 @@ import Foundation
 import CoreData
 
 protocol DatabaseAccess {
-    var viewContext: NSManagedObjectContext { get }
+    var readContext: NSManagedObjectContext { get }
+    
+    func getWorkContext(_ closure: @escaping (_ context: NSManagedObjectContext) -> Void, complition: ((_ success: Bool) -> Void)?)
 }

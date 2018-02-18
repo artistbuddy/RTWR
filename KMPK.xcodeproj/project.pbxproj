@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8F01F945202E26A8002614BB /* CSVDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F01F944202E26A8002614BB /* CSVDecoderTests.swift */; };
 		8F01F946202E2B22002614BB /* APIQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39CB31202DEEA500F91C89 /* APIQuery.swift */; };
+		8F04D2962039D58C0075552C /* CoreStationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D2912039D58C0075552C /* CoreStationRoute.swift */; };
+		8F04D2972039D58C0075552C /* CoreStationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D2912039D58C0075552C /* CoreStationRoute.swift */; };
+		8F04D29A2039D58C0075552C /* CoreStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D2932039D58C0075552C /* CoreStation.swift */; };
+		8F04D29B2039D58C0075552C /* CoreStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D2932039D58C0075552C /* CoreStation.swift */; };
 		8F1DB74D202E0B11002115C8 /* CSVDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */; };
 		8F1DB74E202E0B11002115C8 /* CSVDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */; };
 		8F242B822031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */; };
@@ -90,6 +94,8 @@
 
 /* Begin PBXFileReference section */
 		8F01F944202E26A8002614BB /* CSVDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDecoderTests.swift; sourceTree = "<group>"; };
+		8F04D2912039D58C0075552C /* CoreStationRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStationRoute.swift; sourceTree = "<group>"; };
+		8F04D2932039D58C0075552C /* CoreStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStation.swift; sourceTree = "<group>"; };
 		8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDecoder.swift; sourceTree = "<group>"; };
 		8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePolicyController.swift; sourceTree = "<group>"; };
 		8F242B842031DE67001A9FE2 /* DataSourceDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceDownloader.swift; sourceTree = "<group>"; };
@@ -151,9 +157,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F04D28F2039D4CE0075552C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F04D2932039D58C0075552C /* CoreStation.swift */,
+				8F04D2912039D58C0075552C /* CoreStationRoute.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8F44892720335A3D008D5E29 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				8F04D28F2039D4CE0075552C /* Models */,
 				8F44892320335A38008D5E29 /* Database.xcdatamodeld */,
 				8F44892820335A53008D5E29 /* DatabaseController.swift */,
 				8F44892B20335AAD008D5E29 /* DatabaseAccess.swift */,
@@ -390,6 +406,7 @@
 				8F39CB1D202DB4FC00F91C89 /* Credentials.swift in Sources */,
 				8F61680F201DF3F400FA3073 /* APIMethod.swift in Sources */,
 				8F6167EB201DF16C00FA3073 /* SearchViewController.swift in Sources */,
+				8F04D2962039D58C0075552C /* CoreStationRoute.swift in Sources */,
 				8FB65B7D2031B22600E9C564 /* StationDataSource.swift in Sources */,
 				8F6167E9201DF16C00FA3073 /* AppDelegate.swift in Sources */,
 				8F616812201E068500FA3073 /* APICallback.swift in Sources */,
@@ -397,6 +414,7 @@
 				8F616809201DF1CD00FA3073 /* APIController.swift in Sources */,
 				8F39CB2F202DC8F300F91C89 /* Session.swift in Sources */,
 				8F7C0BB6202636B000CCAD63 /* DetailsViewController.swift in Sources */,
+				8F04D29A2039D58C0075552C /* CoreStation.swift in Sources */,
 				8F39CB20202DB6B700F91C89 /* APIAuth.swift in Sources */,
 				8F39CB26202DC29500F91C89 /* APIProtocol.swift in Sources */,
 			);
@@ -425,11 +443,13 @@
 				8F7C0BBA202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
 				8F39CB21202DB6B700F91C89 /* APIAuth.swift in Sources */,
 				8F7C0BB1202614E700CCAD63 /* ResultsCollectionViewController.swift in Sources */,
+				8F7B909520373EE7000A9419 /* UpdateViewController.swift in Sources */,
 				8FFAC54620275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */,
 				8F242B862031DE67001A9FE2 /* DataSourceDownloader.swift in Sources */,
 				8F616816201E114C00FA3073 /* Codables.swift in Sources */,
 				8F7C0BAE2026112900CCAD63 /* SearchController.swift in Sources */,
 				8F01F946202E2B22002614BB /* APIQuery.swift in Sources */,
+				8F04D2972039D58C0075552C /* CoreStationRoute.swift in Sources */,
 				8FB65B7E2031B22600E9C564 /* StationDataSource.swift in Sources */,
 				8F61681C201E27CE00FA3073 /* APIConfig.swift in Sources */,
 				8F616813201E068500FA3073 /* APICallback.swift in Sources */,
@@ -437,7 +457,9 @@
 				8F7C0BBD2026384B00CCAD63 /* StationController.swift in Sources */,
 				8F39CB30202DC8F300F91C89 /* Session.swift in Sources */,
 				8F7C0BB7202636B000CCAD63 /* DetailsViewController.swift in Sources */,
+				8F04D29B2039D58C0075552C /* CoreStation.swift in Sources */,
 				8F7C0BAB20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */,
+				8F7B909220372604000A9419 /* StationImporter.swift in Sources */,
 				8F616819201E267600FA3073 /* APIRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
