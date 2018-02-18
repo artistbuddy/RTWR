@@ -53,7 +53,7 @@ class StationController {
     func show(id: String) {
         let query = TStationBoardQuery(id: id)
         
-        Session.api.execute(query, successJSON: { [weak self] (results) in
+        Session.shared.api.execute(query, successJSON: { [weak self] (results) in
             let station = self?.parseShow(result: results)
             
             DispatchQueue.main.async {

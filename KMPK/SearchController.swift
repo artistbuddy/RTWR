@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol SearchResultData {
     typealias Line = String
@@ -37,43 +38,35 @@ class SearchController: NSObject {
     weak var delegate: SearchControllerDelegate?
     
     func search(query: String) {
-        let query = TSearchStationQuery(query: query)
-
-        Session.api.execute(query, successJSON: { [weak self] (result) in
+        var output = [SearchResultData]()
+        
+        let context = Session.shared.database.readContext
+        
+        let request: NSFetchRequest<CoreStation> = CoreStation.fetchRequest()
+        request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", query)
+        
+        do {
+            let results = try context.fetch(request)
             
-            let parsed = self?.parseSearch(result: result)
-            
-            DispatchQueue.main.async {
-                self?.delegate?.searchController(self!, result: parsed!)
-            }
-            
-        }) { (error) in
-            APILog.debug(error)
-        }
-    }
-    
-    private func parseSearch(result: TSearchStationQuery.Result) -> [ResultData] {
-        var output = [ResultData]()
-
-        for station in result {
-            var routes = [String : String]()
-            
-            for line in station.lines {
-                
-                if routes[line.direction] != nil {
-                    routes[line.direction]!.append("; \(line.line)")
-                } else {
-                    routes[line.direction] = line.line
+            for data in results {
+                var routes = [String : String]()
+                for r in data.routes {
+                    routes[r.line] = r.direction
                 }
+
+                let search = ResultData(id: data.id,
+                                        name: data.name,
+                                        routes: routes)
                 
+                output.append(search)
             }
             
-            let data = ResultData(id: station.symbol, name: station.name, routes: routes)
-            
-            output.append(data)
+        } catch {
+            print("Failed")
         }
         
-        return output
+        delegate?.searchController(self, result: output)
+        
     }
 }
 

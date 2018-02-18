@@ -8,7 +8,13 @@
 
 import Foundation
 
-struct Session {
-    static let api: APIProtocol = APIController(auth: APIAuth(credential: APIConfig.impk))
-    static let database: DatabaseAccess = DatabaseController()
+class Session {
+    static let shared = Session()
+    
+    let api: APIProtocol = APIController(auth: APIAuth(credential: APIConfig.impk))
+    let database: DatabaseAccess = DatabaseController()
+    
+    private init() {
+        
+    }
 }
