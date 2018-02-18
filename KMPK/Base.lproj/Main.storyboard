@@ -162,6 +162,45 @@
             </objects>
             <point key="canvasLocation" x="-370.39999999999998" y="25.637181409295355"/>
         </scene>
+        <!--Update View Controller-->
+        <scene sceneID="lSw-Lv-Fcc">
+            <objects>
+                <viewController id="Oal-Ee-OGB" customClass="UpdateViewController" customModule="KMPK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8aa-XA-AX6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uhg-0R-Zsw">
+                                <rect key="frame" x="162" y="308.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8N4-eG-xJG"/>
+                                    <constraint firstAttribute="height" constant="50" id="zMm-Ij-1aA"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4P4-U0-DeP">
+                                <rect key="frame" x="152" y="366" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uhg-0R-Zsw" firstAttribute="centerY" secondItem="8aa-XA-AX6" secondAttribute="centerY" id="M4C-x2-COa"/>
+                            <constraint firstItem="4P4-U0-DeP" firstAttribute="top" secondItem="uhg-0R-Zsw" secondAttribute="bottom" constant="8" id="caF-IG-Evs"/>
+                            <constraint firstItem="4P4-U0-DeP" firstAttribute="centerX" secondItem="8aa-XA-AX6" secondAttribute="centerX" id="fBO-aM-SOW"/>
+                            <constraint firstItem="uhg-0R-Zsw" firstAttribute="centerX" secondItem="8aa-XA-AX6" secondAttribute="centerX" id="hpe-Hm-KZa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PD4-uz-4zb"/>
+                    </view>
+                    <connections>
+                        <segue destination="gmL-AN-Bad" kind="show" identifier="main" id="esf-oo-hHS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHr-MN-cDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2030" y="26"/>
+        </scene>
         <!--Details View Controller-->
         <scene sceneID="3eb-oG-zYr">
             <objects>

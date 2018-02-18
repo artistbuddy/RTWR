@@ -13,6 +13,8 @@
 		8F04D2972039D58C0075552C /* CoreStationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D2912039D58C0075552C /* CoreStationRoute.swift */; };
 		8F04D29A2039D58C0075552C /* CoreStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D2932039D58C0075552C /* CoreStation.swift */; };
 		8F04D29B2039D58C0075552C /* CoreStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D2932039D58C0075552C /* CoreStation.swift */; };
+		8F04D29D2039F89E0075552C /* UpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D29C2039F89E0075552C /* UpdateController.swift */; };
+		8F04D29E2039F89E0075552C /* UpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D29C2039F89E0075552C /* UpdateController.swift */; };
 		8F1DB74D202E0B11002115C8 /* CSVDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */; };
 		8F1DB74E202E0B11002115C8 /* CSVDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */; };
 		8F242B822031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */; };
@@ -60,6 +62,8 @@
 		8F61681F201E54E100FA3073 /* APILog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F61681D201E54E100FA3073 /* APILog.swift */; };
 		8F7B909120372604000A9419 /* StationImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7B909020372604000A9419 /* StationImporter.swift */; };
 		8F7B909220372604000A9419 /* StationImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7B909020372604000A9419 /* StationImporter.swift */; };
+		8F7B909420373EE7000A9419 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7B909320373EE7000A9419 /* UpdateViewController.swift */; };
+		8F7B909520373EE7000A9419 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7B909320373EE7000A9419 /* UpdateViewController.swift */; };
 		8F7C0BA7202608B900CCAD63 /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BA6202608B900CCAD63 /* Queries.swift */; };
 		8F7C0BA8202608B900CCAD63 /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BA6202608B900CCAD63 /* Queries.swift */; };
 		8F7C0BAA20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */; };
@@ -98,6 +102,7 @@
 		8F01F944202E26A8002614BB /* CSVDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDecoderTests.swift; sourceTree = "<group>"; };
 		8F04D2912039D58C0075552C /* CoreStationRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStationRoute.swift; sourceTree = "<group>"; };
 		8F04D2932039D58C0075552C /* CoreStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStation.swift; sourceTree = "<group>"; };
+		8F04D29C2039F89E0075552C /* UpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateController.swift; sourceTree = "<group>"; };
 		8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDecoder.swift; sourceTree = "<group>"; };
 		8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePolicyController.swift; sourceTree = "<group>"; };
 		8F242B842031DE67001A9FE2 /* DataSourceDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceDownloader.swift; sourceTree = "<group>"; };
@@ -129,6 +134,7 @@
 		8F61681A201E27CE00FA3073 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		8F61681D201E54E100FA3073 /* APILog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILog.swift; sourceTree = "<group>"; };
 		8F7B909020372604000A9419 /* StationImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationImporter.swift; sourceTree = "<group>"; };
+		8F7B909320373EE7000A9419 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		8F7C0BA6202608B900CCAD63 /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F7C0BAC2026112900CCAD63 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 				8FFAC5422027495700C3160A /* View Controllers */,
 				8F7C0BAC2026112900CCAD63 /* SearchController.swift */,
 				8F7C0BBB2026384B00CCAD63 /* StationController.swift */,
+				8F04D29C2039F89E0075552C /* UpdateController.swift */,
 				8F7C0BAF202614E700CCAD63 /* ResultsCollectionViewController.swift */,
 				8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */,
 				8FB65B7F2031B22A00E9C564 /* Data Sources */,
@@ -269,6 +276,7 @@
 			children = (
 				8F6167EA201DF16C00FA3073 /* SearchViewController.swift */,
 				8F7C0BB5202636B000CCAD63 /* DetailsViewController.swift */,
+				8F7B909320373EE7000A9419 /* UpdateViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -390,6 +398,7 @@
 				8F616815201E114C00FA3073 /* Codables.swift in Sources */,
 				8F44892520335A38008D5E29 /* Database.xcdatamodeld in Sources */,
 				8FFAC548202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */,
+				8F04D29D2039F89E0075552C /* UpdateController.swift in Sources */,
 				8F39CB32202DEEA500F91C89 /* APIQuery.swift in Sources */,
 				8F7C0BB9202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
 				8F7C0BAA20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */,
@@ -405,6 +414,7 @@
 				8F616818201E267600FA3073 /* APIRouter.swift in Sources */,
 				8F7C0BB0202614E700CCAD63 /* ResultsCollectionViewController.swift in Sources */,
 				8F39CB1A202DB27600F91C89 /* APICredential.swift in Sources */,
+				8F7B909420373EE7000A9419 /* UpdateViewController.swift in Sources */,
 				8F7C0BBC2026384B00CCAD63 /* StationController.swift in Sources */,
 				8F242B852031DE67001A9FE2 /* DataSourceDownloader.swift in Sources */,
 				8F39CB1D202DB4FC00F91C89 /* Credentials.swift in Sources */,
@@ -433,6 +443,7 @@
 				8F7C0BA8202608B900CCAD63 /* Queries.swift in Sources */,
 				8F44892620335A38008D5E29 /* Database.xcdatamodeld in Sources */,
 				8F61680A201DF1CD00FA3073 /* APIController.swift in Sources */,
+				8F04D29E2039F89E0075552C /* UpdateController.swift in Sources */,
 				8F1DB74E202E0B11002115C8 /* CSVDecoder.swift in Sources */,
 				8F01F945202E26A8002614BB /* CSVDecoderTests.swift in Sources */,
 				8F39CB27202DC29500F91C89 /* APIProtocol.swift in Sources */,

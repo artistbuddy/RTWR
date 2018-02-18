@@ -61,11 +61,6 @@ protocol StationRoute {
     var direction: String { get }
 }
 
-
-protocol StationDataSourceDelegate {
-    func stationDataSource(didDownload data: [StationData])
-}
-
 fileprivate struct ResultData: StationData {
     var id: String = ""
     var name: String = ""
@@ -81,8 +76,6 @@ fileprivate struct RouteData {
 
 class StationDataSource: DataSourceDownloader {
     typealias Data = [StationData]
-    
-    var delegate: StationDataSourceDelegate?
     
     let policy: DataSourcePolicy
     let api: APIProtocol
