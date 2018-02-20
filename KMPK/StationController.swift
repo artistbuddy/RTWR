@@ -2,92 +2,80 @@
 //  StationController.swift
 //  KMPK
 //
-//  Created by Karol Bukowski on 03.02.2018.
+//  Created by Karol Bukowski on 20.02.2018.
 //  Copyright © 2018 Karol Bukowski. All rights reserved.
 //
 
 import Foundation
+import CoreData
 
-protocol StationBoardData {
-    var line: String { get }
-    var direction: String { get }
-    var lastStop: String { get }
-    var estimatedMinutes: Int { get }
-    var scheduledDepartureTime: String { get }
-    var routeStared: Bool { get }
-    var poorGPS: Bool { get }
-    var disabledFacilities: Bool { get }
-    var airConditioning: Bool { get }
+fileprivate struct ResultData: StationData {
+    let id: String
+    let name: String
+    let type: StationType
+    let coordinates: Coordinates
+    let routes: [StationRoute]
     
+    init(core: CoreStation) {
+        self.id = core.id
+        self.name = core.name
+        self.type = StationType(int16: core.type)!
+        self.coordinates = Coordinates(lat: core.latitude, long: core.longitude)
+        self.routes = Array(core.routes.map{ RouteData(core: $0) })
+    }
 }
 
-fileprivate struct ResultData: StationBoardData {
-    var line: String
-    var direction: String
-    var lastStop: String
-    var estimatedMinutes: Int
-    var scheduledDepartureTime: String
-    var routeStared: Bool
-    var poorGPS: Bool
-    var disabledFacilities: Bool
-    var airConditioning: Bool
+fileprivate struct RouteData: StationRoute {
+    let line: String
+    let direction: String
     
-    static let empty = ResultData(line: "",
-                                          direction: "",
-                                          lastStop: "",
-                                          estimatedMinutes: 0,
-                                          scheduledDepartureTime: "",
-                                          routeStared: false,
-                                          poorGPS: false,
-                                          disabledFacilities: false,
-                                          airConditioning: false)
-}
-
-protocol StationControllerDelegate: class {
-    func stationController(_ controller: StationController, station: [StationBoardData])
+    init(core: CoreStationRoute) {
+        self.line = core.line
+        self.direction = core.direction
+    }
 }
 
 class StationController {
-    weak var delegate: StationControllerDelegate?
+    private let database: DatabaseAccess
     
-    func show(id: String) {
-        let query = TStationBoardQuery(id: id)
-
-        Session.shared.api.execute(query, successJSON: { [weak self] (results) in
-            let station = self?.parseShow(result: results)
-
-            DispatchQueue.main.async {
-                self?.delegate?.stationController(self!, station: station!)
-            }
-        }) { (error) in
-            APILog.debug(error)
-        }
-        
+    init(database: DatabaseAccess) {
+        self.database = database
     }
     
-    private func parseShow(result: TStationBoardQuery.Result) -> [ResultData] {
-        guard let station = result.first?.value else {
+    func search(name: String) -> [StationData] {
+        let predicate = NSPredicate(format: "name CONTAINS[cd] %@", name)
+        
+        return search(predicate: predicate)
+    }
+    
+    func search(id: String) -> [StationData] {
+        let predicate = NSPredicate(format: "id BEGINSWITH %@", id)
+        
+        return search(predicate: predicate)
+    }
+    
+    func get(id: String) -> [StationData] {
+        let predicate = NSPredicate(format: "id = %@", id)
+        
+        return search(predicate: predicate)
+    }
+}
+
+// MARK:- Helpers
+extension StationController {
+    private func search(predicate: NSPredicate) -> [StationData] {
+        let context = self.database.readContext
+        
+        let request = NSFetchRequest<CoreStation>(entityName: String(describing: CoreStation.self))
+        request.predicate = predicate
+        request.fetchLimit = 50
+        
+        do {
+            let result = try context.fetch(request)
+            return result.map{ ResultData(core: $0) }
+        } catch {
             return []
         }
         
-        var output = [ResultData]()
-        
-        for board in station.board {
-            var data = ResultData.empty
-            
-            data.line = board.line
-            data.direction = board.direction
-            data.lastStop = board.currentStop.name
-            data.estimatedMinutes = board.minuteCount
-            data.routeStared = !(board.routeBegin)
-            data.scheduledDepartureTime = board.scheduledDepartureTime
-            data.poorGPS = (board.lag > 10000) ? true : false
-            data.airConditioning = board.ac
-            //data.disabledFacilities implement!
-            
-            output.append(data)
-        }
-        
-        return output
     }
 }

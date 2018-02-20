@@ -12,7 +12,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var detailsCollectionView: UICollectionView!
     
     private(set) var detailsController: DetailsCollectionViewController!
-    private(set) var stationController: StationController!
+    private(set) var stationController: OldStationController!
     private var timer: DispatchSourceTimer?
     
     var id: String!
@@ -25,7 +25,7 @@ class DetailsViewController: UIViewController {
 
     func setupView() {
         self.detailsController = DetailsCollectionViewController(collectionView: self.detailsCollectionView)
-        self.stationController = StationController()
+        self.stationController = OldStationController()
         self.stationController.delegate = self.detailsController
         
         self.timer?.cancel()

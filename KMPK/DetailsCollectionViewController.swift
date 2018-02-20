@@ -66,8 +66,8 @@ extension DetailsCollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK:- StationControllerDelegate
-extension DetailsCollectionViewController: StationControllerDelegate {
-    func stationController(_ controller: StationController, station: [StationBoardData]) {
+extension DetailsCollectionViewController: OldStationControllerDelegate {
+    func oldStationController(_ controller: OldStationController, station: [StationBoardData]) {
         self.dataSource = station
         self.collectionView.reloadData()
     }

@@ -9,65 +9,41 @@
 import UIKit
 import CoreData
 
-protocol SearchResultData {
-    typealias Line = String
-    typealias Direction = String
-    
-    var id: String { get }
-    var name: String { get }
-    var routes: [Direction : Line] { get }
-}
-
-fileprivate struct ResultData: SearchResultData {
-    var id: String
-    var name: String
-    var routes: [Direction : Line]
-    
-    init(id: String, name: String, routes: [Direction : Line]) {
-        self.id = id
-        self.name = name
-        self.routes = routes
-    }
-}
-
 protocol SearchControllerDelegate: class {
-    func searchController(_ controller: SearchController, result: [SearchResultData])
+    func searchController(result: [StationData])
 }
 
-class SearchController: NSObject {
+class SearchController {
     weak var delegate: SearchControllerDelegate?
     
+    private let controller: StationController
+    private var pendingSearch: DispatchWorkItem?
+    
+    init(stationController controller: StationController) {
+        self.controller = controller
+    }
+    
     func search(query: String) {
-        var output = [SearchResultData]()
-        
-        let context = Session.shared.database.readContext
-        
-        let request: NSFetchRequest<CoreStation> = CoreStation.fetchRequest()
-        request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", query)
-        
-        do {
-            let results = try context.fetch(request)
-            
-            for data in results {
-                var routes = [String : String]()
-                for r in data.routes {
-                    routes[r.line] = r.direction
-                }
+        self.pendingSearch?.cancel()
 
-                let search = ResultData(id: data.id,
-                                        name: data.name,
-                                        routes: routes)
-                
-                output.append(search)
+        let searchRequest = DispatchWorkItem {
+            var result: [StationData]?
+
+            if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: query)) {
+                result = self.controller.search(id: query)
+            } else {
+                result = self.controller.search(name: query)
             }
-            
-        } catch {
-            print("Failed")
+
+            self.delegate?.searchController(result: result ?? [])
         }
-        
-        delegate?.searchController(self, result: output)
-        
+
+        self.pendingSearch = searchRequest
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200), execute: searchRequest)
+
     }
 }
+
 
 

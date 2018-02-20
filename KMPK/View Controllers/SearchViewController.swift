@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
     private(set) var searchController: SearchController!
     private(set) var resultsController: ResultsCollectionViewController!
     
-    private var selectedResult: SearchResultData?
+    private var selectedResult: StationData?
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
         self.resultsController = ResultsCollectionViewController(collectionView: self.resultsCollectionView)
         self.resultsController.delegate = self
         
-        self.searchController = SearchController()
+        self.searchController = SearchController(stationController: StationController(database: Session.shared.database))
         self.searchController.delegate = self.resultsController
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -45,7 +45,7 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func actionSearch(_ sender: UITextField) {
-        guard let text = sender.text, text.count > 2 else {
+        guard let text = sender.text else {
             return
         }
         
@@ -64,13 +64,10 @@ class SearchViewController: UIViewController {
 
 // MARK:- ResultsCollectionViewControllerDelegate
 extension SearchViewController: ResultsCollectionViewControllerDelegate {
-    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: SearchResultData) {
+    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: StationData) {
         self.selectedResult = result
         performSegue(withIdentifier: "details", sender: nil)
     }
-    
-    
-    
-    
+ 
 }
 

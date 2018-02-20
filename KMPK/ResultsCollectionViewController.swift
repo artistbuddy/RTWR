@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ResultsCollectionViewControllerDelegate: class {
-    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: SearchResultData)
+    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: StationData)
 }
 
 class ResultsCollectionViewController: NSObject {
@@ -23,7 +23,7 @@ class ResultsCollectionViewController: NSObject {
     }()
     let collectionView: UICollectionView
     
-    private var dataSource = [SearchResultData]()
+    private var dataSource = [StationData]()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -61,7 +61,7 @@ extension ResultsCollectionViewController: UICollectionViewDataSource {
         return cell
     }
     
-    private func prepare(routes: [String : String]) -> NSAttributedString {
+    private func prepare(routes: [StationRoute]) -> NSAttributedString {
         let output = NSMutableAttributedString()
         
         var regularFont: [NSAttributedStringKey : Any] {
@@ -78,9 +78,9 @@ extension ResultsCollectionViewController: UICollectionViewDataSource {
             ]
         }
         
-        for (offset: index, element: (key: direction, value: line)) in routes.enumerated() {
-            let direction = NSAttributedString(string: "\(direction): ", attributes: mediumFont)
-            let line = NSAttributedString(string: "\(line)", attributes: regularFont)
+        for (index, route) in routes.enumerated() {
+            let direction = NSAttributedString(string: "\(route.direction): ", attributes: mediumFont)
+            let line = NSAttributedString(string: "\(route.line)", attributes: regularFont)
             
             output.append(direction)
             output.append(line)
@@ -107,7 +107,7 @@ extension ResultsCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK:- SearchControllerDelegate
 extension ResultsCollectionViewController: SearchControllerDelegate {
-    func searchController(_ controller: SearchController, result: [SearchResultData]) {
+    func searchController(result: [StationData]) {
         self.dataSource = result
         self.collectionView.reloadData()
     }

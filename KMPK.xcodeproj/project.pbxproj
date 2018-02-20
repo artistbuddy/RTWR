@@ -38,6 +38,8 @@
 		8F44892A20335A53008D5E29 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44892820335A53008D5E29 /* DatabaseController.swift */; };
 		8F44892C20335AAD008D5E29 /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44892B20335AAD008D5E29 /* DatabaseAccess.swift */; };
 		8F44892D20335AAD008D5E29 /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44892B20335AAD008D5E29 /* DatabaseAccess.swift */; };
+		8F5CA117203C681900A6C941 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CA116203C681900A6C941 /* StationController.swift */; };
+		8F5CA118203C681900A6C941 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CA116203C681900A6C941 /* StationController.swift */; };
 		8F6167E9201DF16C00FA3073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6167E8201DF16C00FA3073 /* AppDelegate.swift */; };
 		8F6167EB201DF16C00FA3073 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6167EA201DF16C00FA3073 /* SearchViewController.swift */; };
 		8F6167EE201DF16C00FA3073 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F6167EC201DF16C00FA3073 /* Main.storyboard */; };
@@ -76,8 +78,8 @@
 		8F7C0BB7202636B000CCAD63 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BB5202636B000CCAD63 /* DetailsViewController.swift */; };
 		8F7C0BB9202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */; };
 		8F7C0BBA202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */; };
-		8F7C0BBC2026384B00CCAD63 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BBB2026384B00CCAD63 /* StationController.swift */; };
-		8F7C0BBD2026384B00CCAD63 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BBB2026384B00CCAD63 /* StationController.swift */; };
+		8F7C0BBC2026384B00CCAD63 /* OldStationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BBB2026384B00CCAD63 /* OldStationController.swift */; };
+		8F7C0BBD2026384B00CCAD63 /* OldStationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BBB2026384B00CCAD63 /* OldStationController.swift */; };
 		8F85A971203C2C32008A21D1 /* BoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85A970203C2C32008A21D1 /* BoardDataSource.swift */; };
 		8F85A972203C2C32008A21D1 /* BoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85A970203C2C32008A21D1 /* BoardDataSource.swift */; };
 		8FB36357202F8A530031E3E6 /* APICSVQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB36356202F8A530031E3E6 /* APICSVQuery.swift */; };
@@ -117,6 +119,7 @@
 		8F44892420335A38008D5E29 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		8F44892820335A53008D5E29 /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		8F44892B20335AAD008D5E29 /* DatabaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAccess.swift; sourceTree = "<group>"; };
+		8F5CA116203C681900A6C941 /* StationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationController.swift; sourceTree = "<group>"; };
 		8F6167E5201DF16C00FA3073 /* KMPK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMPK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6167E8201DF16C00FA3073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F6167EA201DF16C00FA3073 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +146,7 @@
 		8F7C0BAF202614E700CCAD63 /* ResultsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCollectionViewController.swift; sourceTree = "<group>"; };
 		8F7C0BB5202636B000CCAD63 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewController.swift; sourceTree = "<group>"; };
-		8F7C0BBB2026384B00CCAD63 /* StationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationController.swift; sourceTree = "<group>"; };
+		8F7C0BBB2026384B00CCAD63 /* OldStationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldStationController.swift; sourceTree = "<group>"; };
 		8F85A970203C2C32008A21D1 /* BoardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataSource.swift; sourceTree = "<group>"; };
 		8FB36356202F8A530031E3E6 /* APICSVQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICSVQuery.swift; sourceTree = "<group>"; };
 		8FB65B7C2031B22600E9C564 /* StationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDataSource.swift; sourceTree = "<group>"; };
@@ -214,7 +217,8 @@
 				8F39CB2E202DC8F300F91C89 /* Session.swift */,
 				8FFAC5422027495700C3160A /* View Controllers */,
 				8F7C0BAC2026112900CCAD63 /* SearchController.swift */,
-				8F7C0BBB2026384B00CCAD63 /* StationController.swift */,
+				8F7C0BBB2026384B00CCAD63 /* OldStationController.swift */,
+				8F5CA116203C681900A6C941 /* StationController.swift */,
 				8F04D29C2039F89E0075552C /* UpdateController.swift */,
 				8F7C0BAF202614E700CCAD63 /* ResultsCollectionViewController.swift */,
 				8F7C0BB8202637E700CCAD63 /* DetailsCollectionViewController.swift */,
@@ -406,6 +410,7 @@
 				8F39CB32202DEEA500F91C89 /* APIQuery.swift in Sources */,
 				8F7C0BB9202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
 				8F7C0BAA20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */,
+				8F5CA117203C681900A6C941 /* StationController.swift in Sources */,
 				8F242B822031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */,
 				8F61681B201E27CE00FA3073 /* APIConfig.swift in Sources */,
 				8F44892C20335AAD008D5E29 /* DatabaseAccess.swift in Sources */,
@@ -420,7 +425,7 @@
 				8F7C0BB0202614E700CCAD63 /* ResultsCollectionViewController.swift in Sources */,
 				8F39CB1A202DB27600F91C89 /* APICredential.swift in Sources */,
 				8F7B909420373EE7000A9419 /* UpdateViewController.swift in Sources */,
-				8F7C0BBC2026384B00CCAD63 /* StationController.swift in Sources */,
+				8F7C0BBC2026384B00CCAD63 /* OldStationController.swift in Sources */,
 				8F242B852031DE67001A9FE2 /* DataSourceDownloader.swift in Sources */,
 				8F39CB1D202DB4FC00F91C89 /* Credentials.swift in Sources */,
 				8F61680F201DF3F400FA3073 /* APIMethod.swift in Sources */,
@@ -452,6 +457,7 @@
 				8F1DB74E202E0B11002115C8 /* CSVDecoder.swift in Sources */,
 				8F01F945202E26A8002614BB /* CSVDecoderTests.swift in Sources */,
 				8F39CB27202DC29500F91C89 /* APIProtocol.swift in Sources */,
+				8F5CA118203C681900A6C941 /* StationController.swift in Sources */,
 				8F242B832031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */,
 				8F616810201DF3F400FA3073 /* APIMethod.swift in Sources */,
 				8F44892D20335AAD008D5E29 /* DatabaseAccess.swift in Sources */,
@@ -476,7 +482,7 @@
 				8F61681C201E27CE00FA3073 /* APIConfig.swift in Sources */,
 				8F616813201E068500FA3073 /* APICallback.swift in Sources */,
 				8F39CB1B202DB27600F91C89 /* APICredential.swift in Sources */,
-				8F7C0BBD2026384B00CCAD63 /* StationController.swift in Sources */,
+				8F7C0BBD2026384B00CCAD63 /* OldStationController.swift in Sources */,
 				8F39CB30202DC8F300F91C89 /* Session.swift in Sources */,
 				8F7C0BB7202636B000CCAD63 /* DetailsViewController.swift in Sources */,
 				8F04D29B2039D58C0075552C /* CoreStation.swift in Sources */,
