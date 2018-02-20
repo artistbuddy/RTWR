@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BoardData {
+protocol StationBoardData {
     var line: String { get }
     var direction: String { get }
     var lastStop: String { get }
@@ -21,7 +21,7 @@ protocol BoardData {
     
 }
 
-fileprivate struct ResultData: BoardData {
+fileprivate struct ResultData: StationBoardData {
     var line: String
     var direction: String
     var lastStop: String
@@ -44,7 +44,7 @@ fileprivate struct ResultData: BoardData {
 }
 
 protocol StationControllerDelegate: class {
-    func stationController(_ controller: StationController, station: [BoardData])
+    func stationController(_ controller: StationController, station: [StationBoardData])
 }
 
 class StationController {
@@ -52,10 +52,10 @@ class StationController {
     
     func show(id: String) {
         let query = TStationBoardQuery(id: id)
-        
+
         Session.shared.api.execute(query, successJSON: { [weak self] (results) in
             let station = self?.parseShow(result: results)
-            
+
             DispatchQueue.main.async {
                 self?.delegate?.stationController(self!, station: station!)
             }

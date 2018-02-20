@@ -33,6 +33,7 @@ final class DataSourcePolicyController {
     func getPolicy<T>(dataSource: T.Type) -> DataSourcePolicy {
         switch dataSource {
         case is StationDataSource.Type: return .mixed
+        case is BoardDataSource.Type: return .mixed
         default:
             return self.defaultPolicy
         }
