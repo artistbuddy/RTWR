@@ -22,7 +22,10 @@ protocol UpdateControllerDelegate: class {
 class UpdateController: UpdateProtocol {
     private static let updateKey = "updatedAt"
     private class var dateFormatter: DateFormatter {
-        return DateFormatter()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        
+        return formatter
     }
     
     weak var delegate: UpdateControllerDelegate?
@@ -36,13 +39,16 @@ class UpdateController: UpdateProtocol {
     }
     
     func update() {
-        UserDefaults.standard.set(UpdateController.dateFormatter.date(from: String(describing: Date()))!, forKey: UpdateController.updateKey)
         
         let dataSource = StationDataSource(api: self.api, policy: DataSourcePolicyController.global.getPolicy(dataSource: StationDataSource.self))
         let importer = StationImporter(database: self.database, dataSource: dataSource)
         
-        importer.importData { [weak self] (_) in
-            self?.delegate?.updateControllerDidFinish()
+        importer.importData { (error) in
+            if error == nil {
+                UserDefaults.standard.set(UpdateController.dateFormatter.string(from: Date()), forKey: UpdateController.updateKey)
+            }
+            
+            self.delegate?.updateControllerDidFinish()
         }
         
     }
