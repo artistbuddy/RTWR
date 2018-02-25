@@ -8,23 +8,35 @@
 
 import UIKit
 
+protocol SearchViewControllerDelegate: class {
+    func searchViewController(didSelectStationID id: String)
+    func searchViewController(didSelectStationName name: String)
+}
+
 class SearchViewController: UIViewController {
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var resultsCollectionView: UICollectionView!
+    // MARK:- IBOutlets
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var resultsCollectionView: UICollectionView!
     
-    private(set) var searchController: SearchController!
-    private(set) var resultsController: ResultsCollectionViewController!
+    // MARK:- Public properties
+    weak var delegate: SearchViewControllerDelegate?
     
-    private var selectedResult: StationData?
+    // MARK:- Private properties
+    private var searchController: SearchController!
+    private var resultsController: StationsCollectionViewController!
     
+    private var needle = ""
+    
+    // MARK:- Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()        
         setupView()
     }
     
     func setupView() {
-        self.resultsController = ResultsCollectionViewController(collectionView: self.resultsCollectionView)
+        self.resultsController = StationsCollectionViewController(collectionView: self.resultsCollectionView)
         self.resultsController.delegate = self
+        self.resultsController.dataSource = self
         
         self.searchController = SearchController(stationController: StationController(database: Session.shared.database))
         self.searchController.delegate = self.resultsController
@@ -33,41 +45,58 @@ class SearchViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
+    // MARK:- Private methods
+    private func didQuickSearch() -> Bool {
+        return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: needle))
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             self.resultsCollectionView.contentInset.bottom = keyboardSize.height
         }
         
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc private func keyboardWillHide(notification: NSNotification) {
         self.resultsCollectionView.contentInset.bottom = 0
     }
     
-    @IBAction func actionSearch(_ sender: UITextField) {
+    // MARK:- IBActions
+    @IBAction private func actionSearch(_ sender: UITextField) {
         guard let text = sender.text else {
             return
         }
         
-        self.searchController.search(query: text)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.searchTextField.resignFirstResponder()
+        let needle = text.components(separatedBy: CharacterSet.alphanumerics.inverted).joined(separator: " ")
         
-        if let destination = segue.destination as? DetailsViewController, segue.identifier == "details" {
-            destination.id = self.selectedResult?.id
-            destination.title = self.selectedResult?.name
+        self.needle = needle
+        
+        self.searchController.search(query: needle)
+    }
+}
+
+// MARK:- StationsCollectionViewDelegate
+extension SearchViewController: StationsCollectionViewDelegate {
+    func stationsCollectionView(_ collectionView: UICollectionView, didSelect station: StationData) {
+        
+        if didQuickSearch() {
+            self.delegate?.searchViewController(didSelectStationID: station.id)
+        } else {
+            self.delegate?.searchViewController(didSelectStationName: station.name)
         }
     }
 }
 
-// MARK:- ResultsCollectionViewControllerDelegate
-extension SearchViewController: ResultsCollectionViewControllerDelegate {
-    func resultsCollectionViewController(_ controller: ResultsCollectionViewController, didSelectResult result: StationData) {
-        self.selectedResult = result
-        performSegue(withIdentifier: "details", sender: nil)
+// MARK:- StationsCollectionViewDataSource
+extension SearchViewController: StationsCollectionViewDataSource {
+    func highlightNeedle(_ collectionView: UICollectionView) -> String {
+        return self.needle
     }
- 
+    
+    func shouldUseCompactCell(_ collectionView: UICollectionView) -> Bool {
+        return !didQuickSearch()
+    }
 }
+
+
 

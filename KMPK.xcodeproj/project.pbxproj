@@ -86,6 +86,24 @@
 		8FB36358202F8A530031E3E6 /* APICSVQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB36356202F8A530031E3E6 /* APICSVQuery.swift */; };
 		8FB65B7D2031B22600E9C564 /* StationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB65B7C2031B22600E9C564 /* StationDataSource.swift */; };
 		8FB65B7E2031B22600E9C564 /* StationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB65B7C2031B22600E9C564 /* StationDataSource.swift */; };
+		8FD944EC20416D4C00AE0EF1 /* StationsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944EB20416D4C00AE0EF1 /* StationsCollectionViewController.swift */; };
+		8FD944ED20416D4C00AE0EF1 /* StationsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944EB20416D4C00AE0EF1 /* StationsCollectionViewController.swift */; };
+		8FD944EF2041702F00AE0EF1 /* StationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD944EE2041702F00AE0EF1 /* StationCollectionViewCell.xib */; };
+		8FD944F02041702F00AE0EF1 /* StationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD944EE2041702F00AE0EF1 /* StationCollectionViewCell.xib */; };
+		8FD944F2204179F500AE0EF1 /* StationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944F1204179F500AE0EF1 /* StationCollectionViewCell.swift */; };
+		8FD944F3204179F500AE0EF1 /* StationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944F1204179F500AE0EF1 /* StationCollectionViewCell.swift */; };
+		8FD944F620418F7000AE0EF1 /* BatchUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944F520418F7000AE0EF1 /* BatchUpdates.swift */; };
+		8FD944F720418F7000AE0EF1 /* BatchUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944F520418F7000AE0EF1 /* BatchUpdates.swift */; };
+		8FD944FA20418FA100AE0EF1 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944F920418FA100AE0EF1 /* UICollectionViewExtensions.swift */; };
+		8FD944FB20418FA100AE0EF1 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944F920418FA100AE0EF1 /* UICollectionViewExtensions.swift */; };
+		8FD944FD2041A64400AE0EF1 /* StationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944FC2041A64400AE0EF1 /* StationData.swift */; };
+		8FD944FE2041A64400AE0EF1 /* StationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944FC2041A64400AE0EF1 /* StationData.swift */; };
+		8FD945002041A67600AE0EF1 /* StationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944FF2041A67600AE0EF1 /* StationRoute.swift */; };
+		8FD945012041A67600AE0EF1 /* StationRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944FF2041A67600AE0EF1 /* StationRoute.swift */; };
+		8FD945032041A69500AE0EF1 /* StationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD945022041A69500AE0EF1 /* StationType.swift */; };
+		8FD945042041A69500AE0EF1 /* StationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD945022041A69500AE0EF1 /* StationType.swift */; };
+		8FD945062041A6B800AE0EF1 /* StationCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD945052041A6B800AE0EF1 /* StationCoordinates.swift */; };
+		8FD945072041A6B800AE0EF1 /* StationCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD945052041A6B800AE0EF1 /* StationCoordinates.swift */; };
 		8FFAC54520275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */; };
 		8FFAC54620275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */; };
 		8FFAC548202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAC547202790F300C3160A /* DetailsNormalCollectionViewCell.swift */; };
@@ -150,6 +168,15 @@
 		8F85A970203C2C32008A21D1 /* BoardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataSource.swift; sourceTree = "<group>"; };
 		8FB36356202F8A530031E3E6 /* APICSVQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICSVQuery.swift; sourceTree = "<group>"; };
 		8FB65B7C2031B22600E9C564 /* StationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDataSource.swift; sourceTree = "<group>"; };
+		8FD944EB20416D4C00AE0EF1 /* StationsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsCollectionViewController.swift; sourceTree = "<group>"; };
+		8FD944EE2041702F00AE0EF1 /* StationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FD944F1204179F500AE0EF1 /* StationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FD944F520418F7000AE0EF1 /* BatchUpdates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchUpdates.swift; sourceTree = "<group>"; };
+		8FD944F920418FA100AE0EF1 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
+		8FD944FC2041A64400AE0EF1 /* StationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationData.swift; sourceTree = "<group>"; };
+		8FD944FF2041A67600AE0EF1 /* StationRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRoute.swift; sourceTree = "<group>"; };
+		8FD945022041A69500AE0EF1 /* StationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationType.swift; sourceTree = "<group>"; };
+		8FD945052041A6B800AE0EF1 /* StationCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCoordinates.swift; sourceTree = "<group>"; };
 		8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FFAC547202790F300C3160A /* DetailsNormalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNormalCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,6 +244,8 @@
 				8F39CB2E202DC8F300F91C89 /* Session.swift */,
 				8FFAC5422027495700C3160A /* View Controllers */,
 				8F7C0BAC2026112900CCAD63 /* SearchController.swift */,
+				8FD944EB20416D4C00AE0EF1 /* StationsCollectionViewController.swift */,
+				8FD944F820418F7300AE0EF1 /* Extensions */,
 				8F7C0BBB2026384B00CCAD63 /* OldStationController.swift */,
 				8F5CA116203C681900A6C941 /* StationController.swift */,
 				8F04D29C2039F89E0075552C /* UpdateController.swift */,
@@ -271,12 +300,42 @@
 		8FB65B7F2031B22A00E9C564 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8FB65B7C2031B22600E9C564 /* StationDataSource.swift */,
+				8FD945082041A6C300AE0EF1 /* Stations */,
 				8F85A970203C2C32008A21D1 /* BoardDataSource.swift */,
 				8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */,
 				8F242B842031DE67001A9FE2 /* DataSourceDownloader.swift */,
 			);
 			path = "Data Sources";
+			sourceTree = "<group>";
+		};
+		8FD944F420417CFD00AE0EF1 /* Station Compact */ = {
+			isa = PBXGroup;
+			children = (
+				8FD944EE2041702F00AE0EF1 /* StationCollectionViewCell.xib */,
+				8FD944F1204179F500AE0EF1 /* StationCollectionViewCell.swift */,
+			);
+			path = "Station Compact";
+			sourceTree = "<group>";
+		};
+		8FD944F820418F7300AE0EF1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8FD944F520418F7000AE0EF1 /* BatchUpdates.swift */,
+				8FD944F920418FA100AE0EF1 /* UICollectionViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8FD945082041A6C300AE0EF1 /* Stations */ = {
+			isa = PBXGroup;
+			children = (
+				8FB65B7C2031B22600E9C564 /* StationDataSource.swift */,
+				8FD944FC2041A64400AE0EF1 /* StationData.swift */,
+				8FD944FF2041A67600AE0EF1 /* StationRoute.swift */,
+				8FD945052041A6B800AE0EF1 /* StationCoordinates.swift */,
+				8FD945022041A69500AE0EF1 /* StationType.swift */,
+			);
+			path = Stations;
 			sourceTree = "<group>";
 		};
 		8FFAC5422027495700C3160A /* View Controllers */ = {
@@ -292,6 +351,7 @@
 		8FFAC54320275E8A00C3160A /* Collection Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8FD944F420417CFD00AE0EF1 /* Station Compact */,
 				8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */,
 				8FFAC54420275EBA00C3160A /* SearchResultCollectionViewCell.swift */,
 				8FFAC547202790F300C3160A /* DetailsNormalCollectionViewCell.swift */,
@@ -382,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD944EF2041702F00AE0EF1 /* StationCollectionViewCell.xib in Resources */,
 				8F6167F3201DF16C00FA3073 /* LaunchScreen.storyboard in Resources */,
 				8F6167F0201DF16C00FA3073 /* Assets.xcassets in Resources */,
 				8F6167EE201DF16C00FA3073 /* Main.storyboard in Resources */,
@@ -392,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD944F02041702F00AE0EF1 /* StationCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +468,7 @@
 				8F616815201E114C00FA3073 /* Codables.swift in Sources */,
 				8F44892520335A38008D5E29 /* Database.xcdatamodeld in Sources */,
 				8FFAC548202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */,
+				8FD944FD2041A64400AE0EF1 /* StationData.swift in Sources */,
 				8F04D29D2039F89E0075552C /* UpdateController.swift in Sources */,
 				8F39CB32202DEEA500F91C89 /* APIQuery.swift in Sources */,
 				8F7C0BB9202637E700CCAD63 /* DetailsCollectionViewController.swift in Sources */,
@@ -414,7 +477,11 @@
 				8F242B822031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */,
 				8F61681B201E27CE00FA3073 /* APIConfig.swift in Sources */,
 				8F44892C20335AAD008D5E29 /* DatabaseAccess.swift in Sources */,
+				8FD944FA20418FA100AE0EF1 /* UICollectionViewExtensions.swift in Sources */,
 				8F85A971203C2C32008A21D1 /* BoardDataSource.swift in Sources */,
+				8FD944F620418F7000AE0EF1 /* BatchUpdates.swift in Sources */,
+				8FD945062041A6B800AE0EF1 /* StationCoordinates.swift in Sources */,
+				8FD945032041A69500AE0EF1 /* StationType.swift in Sources */,
 				8F7C0BAD2026112900CCAD63 /* SearchController.swift in Sources */,
 				8F7C0BA7202608B900CCAD63 /* Queries.swift in Sources */,
 				8F61681E201E54E100FA3073 /* APILog.swift in Sources */,
@@ -426,13 +493,16 @@
 				8F39CB1A202DB27600F91C89 /* APICredential.swift in Sources */,
 				8F7B909420373EE7000A9419 /* UpdateViewController.swift in Sources */,
 				8F7C0BBC2026384B00CCAD63 /* OldStationController.swift in Sources */,
+				8FD944EC20416D4C00AE0EF1 /* StationsCollectionViewController.swift in Sources */,
 				8F242B852031DE67001A9FE2 /* DataSourceDownloader.swift in Sources */,
 				8F39CB1D202DB4FC00F91C89 /* Credentials.swift in Sources */,
 				8F61680F201DF3F400FA3073 /* APIMethod.swift in Sources */,
 				8F6167EB201DF16C00FA3073 /* SearchViewController.swift in Sources */,
+				8FD944F2204179F500AE0EF1 /* StationCollectionViewCell.swift in Sources */,
 				8F04D2962039D58C0075552C /* CoreStationRoute.swift in Sources */,
 				8FB65B7D2031B22600E9C564 /* StationDataSource.swift in Sources */,
 				8F6167E9201DF16C00FA3073 /* AppDelegate.swift in Sources */,
+				8FD945002041A67600AE0EF1 /* StationRoute.swift in Sources */,
 				8F616812201E068500FA3073 /* APICallback.swift in Sources */,
 				8F1DB74D202E0B11002115C8 /* CSVDecoder.swift in Sources */,
 				8F616809201DF1CD00FA3073 /* APIController.swift in Sources */,
@@ -453,6 +523,7 @@
 				8F7C0BA8202608B900CCAD63 /* Queries.swift in Sources */,
 				8F44892620335A38008D5E29 /* Database.xcdatamodeld in Sources */,
 				8F61680A201DF1CD00FA3073 /* APIController.swift in Sources */,
+				8FD944FE2041A64400AE0EF1 /* StationData.swift in Sources */,
 				8F04D29E2039F89E0075552C /* UpdateController.swift in Sources */,
 				8F1DB74E202E0B11002115C8 /* CSVDecoder.swift in Sources */,
 				8F01F945202E26A8002614BB /* CSVDecoderTests.swift in Sources */,
@@ -461,7 +532,11 @@
 				8F242B832031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */,
 				8F616810201DF3F400FA3073 /* APIMethod.swift in Sources */,
 				8F44892D20335AAD008D5E29 /* DatabaseAccess.swift in Sources */,
+				8FD944FB20418FA100AE0EF1 /* UICollectionViewExtensions.swift in Sources */,
 				8F85A972203C2C32008A21D1 /* BoardDataSource.swift in Sources */,
+				8FD944F720418F7000AE0EF1 /* BatchUpdates.swift in Sources */,
+				8FD945072041A6B800AE0EF1 /* StationCoordinates.swift in Sources */,
+				8FD945042041A69500AE0EF1 /* StationType.swift in Sources */,
 				8F39CB1E202DB4FC00F91C89 /* Credentials.swift in Sources */,
 				8F61681F201E54E100FA3073 /* APILog.swift in Sources */,
 				8FFAC549202790F300C3160A /* DetailsNormalCollectionViewCell.swift in Sources */,
@@ -473,13 +548,16 @@
 				8F7C0BB1202614E700CCAD63 /* ResultsCollectionViewController.swift in Sources */,
 				8F7B909520373EE7000A9419 /* UpdateViewController.swift in Sources */,
 				8FFAC54620275EBA00C3160A /* SearchResultCollectionViewCell.swift in Sources */,
+				8FD944ED20416D4C00AE0EF1 /* StationsCollectionViewController.swift in Sources */,
 				8F242B862031DE67001A9FE2 /* DataSourceDownloader.swift in Sources */,
 				8F616816201E114C00FA3073 /* Codables.swift in Sources */,
 				8F7C0BAE2026112900CCAD63 /* SearchController.swift in Sources */,
 				8F01F946202E2B22002614BB /* APIQuery.swift in Sources */,
+				8FD944F3204179F500AE0EF1 /* StationCollectionViewCell.swift in Sources */,
 				8F04D2972039D58C0075552C /* CoreStationRoute.swift in Sources */,
 				8FB65B7E2031B22600E9C564 /* StationDataSource.swift in Sources */,
 				8F61681C201E27CE00FA3073 /* APIConfig.swift in Sources */,
+				8FD945012041A67600AE0EF1 /* StationRoute.swift in Sources */,
 				8F616813201E068500FA3073 /* APICallback.swift in Sources */,
 				8F39CB1B202DB27600F91C89 /* APICredential.swift in Sources */,
 				8F7C0BBD2026384B00CCAD63 /* OldStationController.swift in Sources */,

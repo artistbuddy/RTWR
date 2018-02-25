@@ -44,7 +44,7 @@ struct TStationDetails: Codable {
     let name: String
 }
 
-struct TStationLines: Codable, StationRoute {
+struct TStationLines: Codable {
     let line: String
     let direction: String
 }

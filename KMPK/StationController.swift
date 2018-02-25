@@ -9,32 +9,6 @@
 import Foundation
 import CoreData
 
-fileprivate struct ResultData: StationData {
-    let id: String
-    let name: String
-    let type: StationType
-    let coordinates: Coordinates
-    let routes: [StationRoute]
-    
-    init(core: CoreStation) {
-        self.id = core.id
-        self.name = core.name
-        self.type = StationType(int16: core.type)!
-        self.coordinates = Coordinates(lat: core.latitude, long: core.longitude)
-        self.routes = Array(core.routes.map{ RouteData(core: $0) })
-    }
-}
-
-fileprivate struct RouteData: StationRoute {
-    let line: String
-    let direction: String
-    
-    init(core: CoreStationRoute) {
-        self.line = core.line
-        self.direction = core.direction
-    }
-}
-
 class StationController {
     private let database: DatabaseAccess
     
@@ -43,13 +17,20 @@ class StationController {
     }
     
     func search(name: String) -> [StationData] {
-        let predicate = NSPredicate(format: "name CONTAINS[cd] %@", name)
+        let query = name.components(separatedBy: CharacterSet.alphanumerics.inverted)
+        
+        let subpredicates = query.map{ NSPredicate(format: "(name BEGINSWITH[c] %@) OR (name MATCHES[c] %@)", $0, String(format: ".*[^\\w]%@.*", $0)) }
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: subpredicates)
+
         
         return search(predicate: predicate)
     }
     
     func search(id: String) -> [StationData] {
-        let predicate = NSPredicate(format: "id BEGINSWITH %@", id)
+        let query = id.components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
+        
+        let predicate = NSPredicate(format: "id BEGINSWITH %@", query)
         
         return search(predicate: predicate)
     }
@@ -66,13 +47,16 @@ extension StationController {
     private func search(predicate: NSPredicate) -> [StationData] {
         let context = self.database.readContext
         
+        let sort = NSSortDescriptor(key: "name", ascending: true)
+        
         let request = NSFetchRequest<CoreStation>(entityName: String(describing: CoreStation.self))
         request.predicate = predicate
+        request.sortDescriptors = [sort]
         request.fetchLimit = 50
         
         do {
             let result = try context.fetch(request)
-            return result.map{ ResultData(core: $0) }
+            return result.map{ StationData(core: $0) }
         } catch {
             return []
         }

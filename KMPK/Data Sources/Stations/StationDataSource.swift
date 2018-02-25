@@ -8,73 +8,7 @@
 
 import Foundation
 
-struct Coordinates {
-    let latitude: Double
-    let longitute: Double
-    
-    init(lat: Double, long: Double) {
-        self.latitude = lat
-        self.longitute = long
-    }
-}
-
-enum StationType {
-    case tram, bus, both
-    
-    init?(t: String) {
-        switch t {
-        case "0": self = .tram
-        case "3": self = .bus
-        case "03": self = .both
-        default: return nil
-        }
-    }
-    
-    init?(int16: Int16) {
-        switch int16 {
-        case 1: self = .tram
-        case 2: self = .bus
-        case 3: self = .both
-        default: return nil
-        }
-    }
-    
-    var toInt16: Int16 {
-        switch self {
-        case .tram: return 1
-        case .bus: return 2
-        case .both: return 3
-        }
-    }
-}
-
-protocol StationData {
-    var id: String { get }
-    var name: String { get }
-    var type: StationType { get }
-    var coordinates: Coordinates { get }
-    var routes: [StationRoute] { get }
-}
-
-protocol StationRoute {
-    var line: String { get }
-    var direction: String { get }
-}
-
-fileprivate struct ResultData: StationData {
-    var id: String = ""
-    var name: String = ""
-    var type: StationType = .bus
-    var coordinates: Coordinates = Coordinates(lat: 0, long: 0)
-    var routes: [StationRoute] = []
-}
-
-fileprivate struct RouteData {
-    var line: String = ""
-    var direction: String = ""
-}
-
-class StationDataSource: DataSourceDownloader {
+class StationDataSource {
     typealias Data = [StationData]
     
     let policy: DataSourcePolicy
@@ -128,7 +62,7 @@ class StationDataSource: DataSourceDownloader {
                 return
             }
             
-            var output = [ResultData]()
+            var output = [StationData]()
             
             for t in tdata {
                 
@@ -141,7 +75,7 @@ class StationDataSource: DataSourceDownloader {
                         break
                     }
                     
-                    let result = ResultData(id: t.symbol, name: t.name, type: type, coordinates: Coordinates(lat: op.lat, long: op.long), routes: t.lines)
+                    let result = StationData(id: t.symbol, name: t.name, type: type, coordinates: StationCoordinates(lat: op.lat, long: op.long), routes: t.lines.map{ StationRoute(t: $0) })
                     output.append(result)
                     
                 } else {

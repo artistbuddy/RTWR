@@ -8,8 +8,10 @@
 
 import Foundation
 
+/*
 protocol DataSourceDownloader {
     associatedtype Data
     
     func download(success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?)
 }
+*/
