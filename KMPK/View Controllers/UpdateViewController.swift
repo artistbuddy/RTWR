@@ -8,27 +8,23 @@
 
 import UIKit
 
-class UpdateViewController: UIViewController, UpdateControllerDelegate {
-    func updateControllerDidFinish() {
-        performSegue(withIdentifier: "main", sender: nil)
+protocol UpdateViewControllerDelegate: class {
+    func updateViewControllerDidFinish()
+}
+
+class UpdateViewController: UIViewController {
+    // MARK:- Public properties
+    weak var delegate: UpdateViewControllerDelegate?
+}
+
+// MARK:- UpdateControllerDelegate
+extension UpdateViewController: UpdateControllerDelegate {
+    // TODO: implement updateController(progress:)
+    func updateController(progress: Int) {
+        
     }
     
-    var controller: UpdateController {
-        let c = UpdateController()
-        c.delegate = self
-        
-        return c
+    func updateControllerDidFinish() {
+        self.delegate?.updateViewControllerDidFinish()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        if controller.updateNeeded() {
-            controller.update()
-        } else {
-            performSegue(withIdentifier: "main", sender: nil)
-        }
-        
-    }
-
 }

@@ -16,10 +16,14 @@ protocol UpdateProtocol {
 
 protocol UpdateControllerDelegate: class {
     func updateControllerDidFinish()
-    //    func updateController(progress: Int)
+    func updateController(progress: Int)
 }
 
 class UpdateController: UpdateProtocol {
+    // MARK:- Public properties
+    weak var delegate: UpdateControllerDelegate?
+    
+    // MARK:- Private properties
     private static let updateKey = "updatedAt"
     private class var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -28,16 +32,16 @@ class UpdateController: UpdateProtocol {
         return formatter
     }
     
-    weak var delegate: UpdateControllerDelegate?
-    
     private let api: APIProtocol
     private let database: DatabaseAccess
     
+    // MARK:- Initialization
     init() {
         self.api = Session.shared.api
         self.database = Session.shared.database
     }
     
+    // MARK:- Public methods
     func update() {
         
         let dataSource = StationDataSource(api: self.api, policy: DataSourcePolicyController.global.getPolicy(dataSource: StationDataSource.self))
@@ -61,6 +65,8 @@ class UpdateController: UpdateProtocol {
         return false
     }
     
+    
+    // MARK:- Private methods
     private func daysSinceLastUpdate() -> Int {
         guard
             let date = UserDefaults.standard.value(forKey: UpdateController.updateKey) as? String,
