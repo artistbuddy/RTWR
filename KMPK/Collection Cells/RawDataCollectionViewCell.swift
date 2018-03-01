@@ -12,6 +12,5 @@ class RawDataCollectionViewCell: UICollectionViewCell {
     static let cellID = "rawDataCell"
     static let cellID2 = "rawDataCell2"
     
-    
     @IBOutlet weak var textView: UITextView!
 }

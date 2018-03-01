@@ -66,17 +66,6 @@ class AppCoordinator: RootViewCoordinator {
         
         self.navigationController.setViewControllers([vc], animated: true)
     }
-    
-    private func showDetailsScene(stationID id: String) {
-        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else {
-            fatalError("Could't instantiate DetailsViewController")
-        }
-        
-        vc.id = id
-        
-        self.navigationController.isNavigationBarHidden = false
-        self.navigationController.pushViewController(vc, animated: true)
-    }
 }
 
 // MARK:- UpdateViewControllerDelegate
@@ -89,7 +78,7 @@ extension AppCoordinator: UpdateViewControllerDelegate {
 // MARK:- SearchViewControllerDelegate
 extension AppCoordinator: SearchViewControllerDelegate {
     func searchViewController(didSelectStationID id: String) {
-        showDetailsScene(stationID: id)
+        // TODO: implement searchViewController(didSelectStationID:)
     }
     
     func searchViewController(didSelectStationName name: String) {

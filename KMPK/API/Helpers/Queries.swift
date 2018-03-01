@@ -61,8 +61,6 @@ struct TStationBoardQuery: APIJSONQuery {
     }
 }
 
-
-
 // MARK: - iMPK source queries
 
 // MARK: - Open Data source queries
