@@ -50,7 +50,7 @@ class StationsCollectionViewController: NSObject {
     private func reloadDataSource(_ newData: [StationData]) {
         let oldValues = saveNewData(newData)
         
-        if self.rawDataSource.isEmpty {
+        if oldValues.isEmpty {
             self.collectionView.reloadData()
         } else {
             self.collectionView.reloadData(with: BatchUpdates.compare(oldValues: oldValues, newValues: self.rawDataSource))
