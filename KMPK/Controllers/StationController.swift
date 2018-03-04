@@ -9,41 +9,22 @@
 import Foundation
 import CoreData
 
+protocol StationControllerProtocol {
+    func search(name: String) -> [StationData]
+    func search(id: String) -> [StationData]
+    func get(id: String) -> StationData?
+}
+
 class StationController {
+    // MARK:- Private properties
     private let database: DatabaseAccess
     
+    // MARK:- Initialization
     init(database: DatabaseAccess) {
         self.database = database
     }
     
-    func search(name: String) -> [StationData] {
-        let query = name.components(separatedBy: CharacterSet.alphanumerics.inverted)
-        
-        let subpredicates = query.map{ NSPredicate(format: "(name BEGINSWITH[c] %@) OR (name MATCHES[c] %@)", $0, String(format: ".*[^\\w]%@.*", $0)) }
-        
-        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: subpredicates)
-
-        
-        return search(predicate: predicate)
-    }
-    
-    func search(id: String) -> [StationData] {
-        let query = id.components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
-        
-        let predicate = NSPredicate(format: "id BEGINSWITH %@", query)
-        
-        return search(predicate: predicate)
-    }
-    
-    func get(id: String) -> [StationData] {
-        let predicate = NSPredicate(format: "id = %@", id)
-        
-        return search(predicate: predicate)
-    }
-}
-
-// MARK:- Helpers
-extension StationController {
+    // MARK:- Private methods
     private func search(predicate: NSPredicate) -> [StationData] {
         let context = self.database.readContext
         
@@ -61,5 +42,33 @@ extension StationController {
             return []
         }
         
+    }
+}
+
+// MARK:- StationControllerProtocol
+extension StationController: StationControllerProtocol {
+    func search(name: String) -> [StationData] {
+        let query = name.components(separatedBy: CharacterSet.alphanumerics.inverted)
+        
+        let subpredicates = query.map{ NSPredicate(format: "(name BEGINSWITH[c] %@) OR (name MATCHES[c] %@)", $0, String(format: ".*[^\\w]%@.*", $0)) }
+        
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: subpredicates)
+        
+        
+        return search(predicate: predicate)
+    }
+    
+    func search(id: String) -> [StationData] {
+        let query = id.components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
+        
+        let predicate = NSPredicate(format: "id BEGINSWITH %@", query)
+        
+        return search(predicate: predicate)
+    }
+    
+    func get(id: String) -> StationData? {
+        let predicate = NSPredicate(format: "id = %@", id)
+        
+        return search(predicate: predicate).first
     }
 }
