@@ -13,6 +13,7 @@ protocol StationControllerProtocol {
     func search(name: String) -> [StationData]
     func search(id: String) -> [StationData]
     func get(id: String) -> StationData?
+    func get(name: String) -> [StationData]
 }
 
 class StationController {
@@ -28,11 +29,12 @@ class StationController {
     private func search(predicate: NSPredicate) -> [StationData] {
         let context = self.database.readContext
         
-        let sort = NSSortDescriptor(key: "name", ascending: true)
+        let sortByName = NSSortDescriptor(key: "name", ascending: true)
+        let sortById = NSSortDescriptor(key: "id", ascending: true)
         
         let request = NSFetchRequest<CoreStation>(entityName: String(describing: CoreStation.self))
         request.predicate = predicate
-        request.sortDescriptors = [sort]
+        request.sortDescriptors = [sortByName, sortById]
         request.fetchLimit = 50
         
         do {
@@ -70,5 +72,11 @@ extension StationController: StationControllerProtocol {
         let predicate = NSPredicate(format: "id = %@", id)
         
         return search(predicate: predicate).first
+    }
+    
+    func get(name: String) -> [StationData] {
+        let predicate = NSPredicate(format: "name = %@", name)
+        
+        return search(predicate: predicate)
     }
 }

@@ -9,12 +9,13 @@
 import Foundation
 
 protocol BoardControllerDelegate: class {
-    func boardController(_ board: [BoardData], forStation id: String)
+    func boardController(_ board: [BoardItem], forStation id: String)
 }
 
 protocol BoardControllerProtocol {
-    func board(forStation id: String)
-    func boards(forStations ids: [String])
+    func board(stationID id: String)
+    func boards(stationIDs ids: [String])
+    func boards(stationName name: String)
 }
 
 class BoardController {
@@ -23,24 +24,31 @@ class BoardController {
     
     // MARK:- Private properties
     private let dataSource: BoardDataSource
+    private let controller: StationController
     
     // MARK:- Initialization
-    init(dataSource: BoardDataSource) {
+    init(dataSource: BoardDataSource, controller: StationController) {
         self.dataSource = dataSource
+        self.controller = controller
     }
 }
 
 // MARK:- BoardControllerProtocol
 extension BoardController: BoardControllerProtocol {
-    func board(forStation id: String) {
+    func board(stationID id: String) {
         self.dataSource.download(stationId: id, success: { (result) in
             self.delegate?.boardController(result, forStation: id)
         }, failure: nil)
     }
     
-    func boards(forStations ids: [String]) {
+    func boards(stationIDs ids: [String]) {
         for id in ids {
-            board(forStation: id)
+            board(stationID: id)
         }
+    }
+    
+    func boards(stationName name: String) {
+        let stations = self.controller.get(name: name)
+        boards(stationIDs: stations.map{ $0.id })
     }
 }
