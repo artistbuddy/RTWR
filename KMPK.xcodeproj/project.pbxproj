@@ -36,6 +36,16 @@
 		8F44892A20335A53008D5E29 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44892820335A53008D5E29 /* DatabaseController.swift */; };
 		8F44892C20335AAD008D5E29 /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44892B20335AAD008D5E29 /* DatabaseAccess.swift */; };
 		8F44892D20335AAD008D5E29 /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44892B20335AAD008D5E29 /* DatabaseAccess.swift */; };
+		8F5B11F6204C020500C850B4 /* BoardPreviewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B11F5204C020500C850B4 /* BoardPreviewCollectionViewController.swift */; };
+		8F5B11F7204C020500C850B4 /* BoardPreviewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B11F5204C020500C850B4 /* BoardPreviewCollectionViewController.swift */; };
+		8F5B11FA204C04D600C850B4 /* BoardPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B11F8204C04D600C850B4 /* BoardPreviewCollectionViewCell.swift */; };
+		8F5B11FB204C04D600C850B4 /* BoardPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B11F8204C04D600C850B4 /* BoardPreviewCollectionViewCell.swift */; };
+		8F5B11FC204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5B11F9204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib */; };
+		8F5B11FD204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5B11F9204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib */; };
+		8F5B1200204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B11FF204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift */; };
+		8F5B1201204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B11FF204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift */; };
+		8F5B1203204D680A00C850B4 /* BoardPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B1202204D680A00C850B4 /* BoardPickerViewModel.swift */; };
+		8F5B1204204D680A00C850B4 /* BoardPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B1202204D680A00C850B4 /* BoardPickerViewModel.swift */; };
 		8F5CA117203C681900A6C941 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CA116203C681900A6C941 /* StationController.swift */; };
 		8F5CA118203C681900A6C941 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CA116203C681900A6C941 /* StationController.swift */; };
 		8F6167E9201DF16C00FA3073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6167E8201DF16C00FA3073 /* AppDelegate.swift */; };
@@ -84,12 +94,18 @@
 		8FD42CE92046ECF1002B7F18 /* RootViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CE72046ECF1002B7F18 /* RootViewControllerProvider.swift */; };
 		8FD42CEB2046ED34002B7F18 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CEA2046ED34002B7F18 /* AppCoordinator.swift */; };
 		8FD42CEC2046ED34002B7F18 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CEA2046ED34002B7F18 /* AppCoordinator.swift */; };
-		8FD42CF62048884D002B7F18 /* BoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CF52048884D002B7F18 /* BoardData.swift */; };
-		8FD42CF72048884D002B7F18 /* BoardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CF52048884D002B7F18 /* BoardData.swift */; };
+		8FD42CF62048884D002B7F18 /* BoardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CF52048884D002B7F18 /* BoardItem.swift */; };
+		8FD42CF72048884D002B7F18 /* BoardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CF52048884D002B7F18 /* BoardItem.swift */; };
 		8FD42CFD20488952002B7F18 /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CFC20488952002B7F18 /* BoardController.swift */; };
 		8FD42CFE20488952002B7F18 /* BoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CFC20488952002B7F18 /* BoardController.swift */; };
-		8FD42D00204AB615002B7F18 /* BoardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CFF204AB615002B7F18 /* BoardDataProvider.swift */; };
-		8FD42D01204AB615002B7F18 /* BoardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CFF204AB615002B7F18 /* BoardDataProvider.swift */; };
+		8FD42D00204AB615002B7F18 /* BoardItemsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CFF204AB615002B7F18 /* BoardItemsProvider.swift */; };
+		8FD42D01204AB615002B7F18 /* BoardItemsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CFF204AB615002B7F18 /* BoardItemsProvider.swift */; };
+		8FD42D03204AE3F3002B7F18 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42D02204AE3F3002B7F18 /* CollectionViewController.swift */; };
+		8FD42D04204AE3F3002B7F18 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42D02204AE3F3002B7F18 /* CollectionViewController.swift */; };
+		8FD42D06204B3749002B7F18 /* BoardPickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42D05204B3749002B7F18 /* BoardPickerCollectionViewController.swift */; };
+		8FD42D07204B3749002B7F18 /* BoardPickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42D05204B3749002B7F18 /* BoardPickerCollectionViewController.swift */; };
+		8FD42D0A204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42D08204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift */; };
+		8FD42D0B204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42D08204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift */; };
 		8FD42D10204BF5B8002B7F18 /* SafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42D0F204BF5B8002B7F18 /* SafeArray.swift */; };
 		8FD42D11204BF5B8002B7F18 /* SafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42D0F204BF5B8002B7F18 /* SafeArray.swift */; };
 		8FD944EC20416D4C00AE0EF1 /* StationsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD944EB20416D4C00AE0EF1 /* StationsCollectionViewController.swift */; };
@@ -136,6 +152,11 @@
 		8F44892420335A38008D5E29 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		8F44892820335A53008D5E29 /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		8F44892B20335AAD008D5E29 /* DatabaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAccess.swift; sourceTree = "<group>"; };
+		8F5B11F5204C020500C850B4 /* BoardPreviewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPreviewCollectionViewController.swift; sourceTree = "<group>"; };
+		8F5B11F8204C04D600C850B4 /* BoardPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F5B11F9204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardPreviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		8F5B11FF204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F5B1202204D680A00C850B4 /* BoardPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPickerViewModel.swift; sourceTree = "<group>"; };
 		8F5CA116203C681900A6C941 /* StationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationController.swift; sourceTree = "<group>"; };
 		8F6167E5201DF16C00FA3073 /* KMPK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMPK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6167E8201DF16C00FA3073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,9 +188,12 @@
 		8FD42CE42046ECDC002B7F18 /* RootViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewCoordinator.swift; sourceTree = "<group>"; };
 		8FD42CE72046ECF1002B7F18 /* RootViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerProvider.swift; sourceTree = "<group>"; };
 		8FD42CEA2046ED34002B7F18 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		8FD42CF52048884D002B7F18 /* BoardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardData.swift; sourceTree = "<group>"; };
+		8FD42CF52048884D002B7F18 /* BoardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItem.swift; sourceTree = "<group>"; };
 		8FD42CFC20488952002B7F18 /* BoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardController.swift; sourceTree = "<group>"; };
-		8FD42CFF204AB615002B7F18 /* BoardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataProvider.swift; sourceTree = "<group>"; };
+		8FD42CFF204AB615002B7F18 /* BoardItemsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItemsProvider.swift; sourceTree = "<group>"; };
+		8FD42D02204AE3F3002B7F18 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		8FD42D05204B3749002B7F18 /* BoardPickerCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPickerCollectionViewController.swift; sourceTree = "<group>"; };
+		8FD42D08204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FD42D0F204BF5B8002B7F18 /* SafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeArray.swift; sourceTree = "<group>"; };
 		8FD944EB20416D4C00AE0EF1 /* StationsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsCollectionViewController.swift; sourceTree = "<group>"; };
 		8FD944EE2041702F00AE0EF1 /* StationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -219,6 +243,23 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		8F5B11FE204C04DA00C850B4 /* Board Preview */ = {
+			isa = PBXGroup;
+			children = (
+				8F5B11F8204C04D600C850B4 /* BoardPreviewCollectionViewCell.swift */,
+				8F5B11F9204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib */,
+			);
+			path = "Board Preview";
+			sourceTree = "<group>";
+		};
+		8F5B1205204D682900C850B4 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F5B1202204D680A00C850B4 /* BoardPickerViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		8F6167DC201DF16C00FA3073 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +287,7 @@
 				8F6167F4201DF16C00FA3073 /* Info.plist */,
 				8F6167E8201DF16C00FA3073 /* AppDelegate.swift */,
 				8F39CB2E202DC8F300F91C89 /* Session.swift */,
+				8F5B1205204D682900C850B4 /* View Models */,
 				8FD42CE32046EC9E002B7F18 /* Coordinators */,
 				8FFAC5422027495700C3160A /* View Controllers */,
 				8FD42CF320488380002B7F18 /* Controllers */,
@@ -316,10 +358,12 @@
 			children = (
 				8F7C0BAC2026112900CCAD63 /* SearchController.swift */,
 				8FD944EB20416D4C00AE0EF1 /* StationsCollectionViewController.swift */,
+				8FD42D05204B3749002B7F18 /* BoardPickerCollectionViewController.swift */,
+				8F5B11F5204C020500C850B4 /* BoardPreviewCollectionViewController.swift */,
 				8F5CA116203C681900A6C941 /* StationController.swift */,
 				8F04D29C2039F89E0075552C /* UpdateController.swift */,
 				8FD42CFC20488952002B7F18 /* BoardController.swift */,
-				8FD42CFF204AB615002B7F18 /* BoardDataProvider.swift */,
+				8FD42CFF204AB615002B7F18 /* BoardItemsProvider.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -334,22 +378,30 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		8FD944F420417CFD00AE0EF1 /* Station Compact */ = {
 		8FD42CF82048887F002B7F18 /* Boards */ = {
 			isa = PBXGroup;
 			children = (
 				8F85A970203C2C32008A21D1 /* BoardDataSource.swift */,
-				8FD42CF52048884D002B7F18 /* BoardData.swift */,
+				8FD42CF52048884D002B7F18 /* BoardItem.swift */,
 			);
 			path = Boards;
 			sourceTree = "<group>";
 		};
+		8FD42D0E204B40B9002B7F18 /* Board Picker */ = {
+			isa = PBXGroup;
+			children = (
+				8FD42D08204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift */,
+			);
+			path = "Board Picker";
+			sourceTree = "<group>";
+		};
+		8FD944F420417CFD00AE0EF1 /* Station */ = {
 			isa = PBXGroup;
 			children = (
 				8FD944EE2041702F00AE0EF1 /* StationCollectionViewCell.xib */,
 				8FD944F1204179F500AE0EF1 /* StationCollectionViewCell.swift */,
 			);
-			path = "Station Compact";
+			path = Station;
 			sourceTree = "<group>";
 		};
 		8FD944F820418F7300AE0EF1 /* Extensions */ = {
@@ -377,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				8F6167EA201DF16C00FA3073 /* SearchViewController.swift */,
+				8FD42D02204AE3F3002B7F18 /* CollectionViewController.swift */,
 				8F7B909320373EE7000A9419 /* UpdateViewController.swift */,
 			);
 			path = "View Controllers";
@@ -385,8 +438,11 @@
 		8FFAC54320275E8A00C3160A /* Collection Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8FD944F420417CFD00AE0EF1 /* Station Compact */,
+				8FD944F420417CFD00AE0EF1 /* Station */,
 				8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */,
+				8F5B11FF204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift */,
+				8F5B11FE204C04DA00C850B4 /* Board Preview */,
+				8FD42D0E204B40B9002B7F18 /* Board Picker */,
 			);
 			path = "Collection Cells";
 			sourceTree = "<group>";
@@ -475,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FD944EF2041702F00AE0EF1 /* StationCollectionViewCell.xib in Resources */,
+				8F5B11FC204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib in Resources */,
 				8F6167F3201DF16C00FA3073 /* LaunchScreen.storyboard in Resources */,
 				8F6167F0201DF16C00FA3073 /* Assets.xcassets in Resources */,
 				8F6167EE201DF16C00FA3073 /* Main.storyboard in Resources */,
@@ -486,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FD944F02041702F00AE0EF1 /* StationCollectionViewCell.xib in Resources */,
+				8F5B11FD204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,9 +556,10 @@
 			files = (
 				8FB36357202F8A530031E3E6 /* APICSVQuery.swift in Sources */,
 				8F616815201E114C00FA3073 /* Codables.swift in Sources */,
+				8F5B11F6204C020500C850B4 /* BoardPreviewCollectionViewController.swift in Sources */,
 				8F44892520335A38008D5E29 /* Database.xcdatamodeld in Sources */,
 				8FD42CE52046ECDC002B7F18 /* RootViewCoordinator.swift in Sources */,
-				8FD42D00204AB615002B7F18 /* BoardDataProvider.swift in Sources */,
+				8FD42D00204AB615002B7F18 /* BoardItemsProvider.swift in Sources */,
 				8FD944FD2041A64400AE0EF1 /* StationData.swift in Sources */,
 				8F04D29D2039F89E0075552C /* UpdateController.swift in Sources */,
 				8F39CB32202DEEA500F91C89 /* APIQuery.swift in Sources */,
@@ -509,7 +568,7 @@
 				8F242B822031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */,
 				8F61681B201E27CE00FA3073 /* APIConfig.swift in Sources */,
 				8F44892C20335AAD008D5E29 /* DatabaseAccess.swift in Sources */,
-				8FD42CF62048884D002B7F18 /* BoardData.swift in Sources */,
+				8FD42CF62048884D002B7F18 /* BoardItem.swift in Sources */,
 				8FD42CE82046ECF1002B7F18 /* RootViewControllerProvider.swift in Sources */,
 				8F85A971203C2C32008A21D1 /* BoardDataSource.swift in Sources */,
 				8FD944F620418F7000AE0EF1 /* BatchUpdates.swift in Sources */,
@@ -527,23 +586,29 @@
 				8F7B909420373EE7000A9419 /* UpdateViewController.swift in Sources */,
 				8FD944EC20416D4C00AE0EF1 /* StationsCollectionViewController.swift in Sources */,
 				8F39CB1D202DB4FC00F91C89 /* Credentials.swift in Sources */,
+				8F5B11FA204C04D600C850B4 /* BoardPreviewCollectionViewCell.swift in Sources */,
 				8FD42D10204BF5B8002B7F18 /* SafeArray.swift in Sources */,
 				8F61680F201DF3F400FA3073 /* APIMethod.swift in Sources */,
 				8F6167EB201DF16C00FA3073 /* SearchViewController.swift in Sources */,
 				8FD42CE12046EC96002B7F18 /* Coordinator.swift in Sources */,
 				8FD944F2204179F500AE0EF1 /* StationCollectionViewCell.swift in Sources */,
+				8FD42D0A204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift in Sources */,
 				8F04D2962039D58C0075552C /* CoreStationRoute.swift in Sources */,
 				8FB65B7D2031B22600E9C564 /* StationDataSource.swift in Sources */,
 				8F6167E9201DF16C00FA3073 /* AppDelegate.swift in Sources */,
+				8FD42D06204B3749002B7F18 /* BoardPickerCollectionViewController.swift in Sources */,
 				8FD945002041A67600AE0EF1 /* StationRoute.swift in Sources */,
+				8F5B1203204D680A00C850B4 /* BoardPickerViewModel.swift in Sources */,
 				8F616812201E068500FA3073 /* APICallback.swift in Sources */,
 				8F1DB74D202E0B11002115C8 /* CSVDecoder.swift in Sources */,
 				8F616809201DF1CD00FA3073 /* APIController.swift in Sources */,
 				8F39CB2F202DC8F300F91C89 /* Session.swift in Sources */,
 				8F04D29A2039D58C0075552C /* CoreStation.swift in Sources */,
+				8F5B1200204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift in Sources */,
 				8F39CB20202DB6B700F91C89 /* APIAuth.swift in Sources */,
 				8F7B909120372604000A9419 /* StationImporter.swift in Sources */,
 				8F39CB26202DC29500F91C89 /* APIProtocol.swift in Sources */,
+				8FD42D03204AE3F3002B7F18 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,9 +618,10 @@
 			files = (
 				8FB36358202F8A530031E3E6 /* APICSVQuery.swift in Sources */,
 				8F7C0BA8202608B900CCAD63 /* Queries.swift in Sources */,
+				8F5B11F7204C020500C850B4 /* BoardPreviewCollectionViewController.swift in Sources */,
 				8F44892620335A38008D5E29 /* Database.xcdatamodeld in Sources */,
 				8FD42CE62046ECDC002B7F18 /* RootViewCoordinator.swift in Sources */,
-				8FD42D01204AB615002B7F18 /* BoardDataProvider.swift in Sources */,
+				8FD42D01204AB615002B7F18 /* BoardItemsProvider.swift in Sources */,
 				8F61680A201DF1CD00FA3073 /* APIController.swift in Sources */,
 				8FD944FE2041A64400AE0EF1 /* StationData.swift in Sources */,
 				8F04D29E2039F89E0075552C /* UpdateController.swift in Sources */,
@@ -564,7 +630,7 @@
 				8F39CB27202DC29500F91C89 /* APIProtocol.swift in Sources */,
 				8F5CA118203C681900A6C941 /* StationController.swift in Sources */,
 				8F242B832031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */,
-				8FD42CF72048884D002B7F18 /* BoardData.swift in Sources */,
+				8FD42CF72048884D002B7F18 /* BoardItem.swift in Sources */,
 				8F616810201DF3F400FA3073 /* APIMethod.swift in Sources */,
 				8F44892D20335AAD008D5E29 /* DatabaseAccess.swift in Sources */,
 				8FD42CE92046ECF1002B7F18 /* RootViewControllerProvider.swift in Sources */,
@@ -582,23 +648,29 @@
 				8FD42CEC2046ED34002B7F18 /* AppCoordinator.swift in Sources */,
 				8F7B909520373EE7000A9419 /* UpdateViewController.swift in Sources */,
 				8FD944ED20416D4C00AE0EF1 /* StationsCollectionViewController.swift in Sources */,
+				8F5B11FB204C04D600C850B4 /* BoardPreviewCollectionViewCell.swift in Sources */,
 				8FD42D11204BF5B8002B7F18 /* SafeArray.swift in Sources */,
 				8F616816201E114C00FA3073 /* Codables.swift in Sources */,
 				8F7C0BAE2026112900CCAD63 /* SearchController.swift in Sources */,
 				8F01F946202E2B22002614BB /* APIQuery.swift in Sources */,
 				8FD42CE22046EC96002B7F18 /* Coordinator.swift in Sources */,
+				8FD42D0B204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift in Sources */,
 				8FD944F3204179F500AE0EF1 /* StationCollectionViewCell.swift in Sources */,
 				8F04D2972039D58C0075552C /* CoreStationRoute.swift in Sources */,
 				8FB65B7E2031B22600E9C564 /* StationDataSource.swift in Sources */,
+				8FD42D07204B3749002B7F18 /* BoardPickerCollectionViewController.swift in Sources */,
 				8F61681C201E27CE00FA3073 /* APIConfig.swift in Sources */,
+				8F5B1204204D680A00C850B4 /* BoardPickerViewModel.swift in Sources */,
 				8FD945012041A67600AE0EF1 /* StationRoute.swift in Sources */,
 				8F616813201E068500FA3073 /* APICallback.swift in Sources */,
 				8F39CB1B202DB27600F91C89 /* APICredential.swift in Sources */,
 				8F39CB30202DC8F300F91C89 /* Session.swift in Sources */,
 				8F04D29B2039D58C0075552C /* CoreStation.swift in Sources */,
+				8F5B1201204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift in Sources */,
 				8F7C0BAB20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */,
 				8F7B909220372604000A9419 /* StationImporter.swift in Sources */,
 				8F616819201E267600FA3073 /* APIRouter.swift in Sources */,
+				8FD42D04204AE3F3002B7F18 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import Foundation
 
 class BoardDataSource {
-    typealias Data = [BoardData]
+    typealias Data = [BoardItem]
     
     // MARK:- Private properties
     private let policyController: DataSourcePolicyController
@@ -40,7 +40,7 @@ class BoardDataSource {
         let query = TStationBoardQuery(id: stationId)
         
         self.api.execute(query, successJSON: { (result) in            
-            var output = [BoardData]()
+            var output = [BoardItem]()
             
             guard let boards = result.first?.value.board else {
                 failure?(APIFailure.invalidData)
@@ -60,7 +60,7 @@ class BoardDataSource {
                     estimatedMinutes = board.minuteCount
                 }
                 
-                let data = BoardData(line: board.line,
+                let data = BoardItem(line: board.line,
                                      direction: board.direction,
                                      lastStation: board.currentStop.name,
                                      nextStation: board.nextStop.name,

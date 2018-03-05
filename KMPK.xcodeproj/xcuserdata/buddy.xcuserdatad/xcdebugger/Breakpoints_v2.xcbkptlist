@@ -109,38 +109,6 @@
             endingLineNumber = "10"
             landmarkName = "unknown"
             landmarkType = "0">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "KMPK.StationController.deinit"
-                  moduleName = "KMPK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/StationController.swift"
-                  timestampString = "541522582.632588"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "KMPK.StationController.__deallocating_deinit"
-                  moduleName = "KMPK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/StationController.swift"
-                  timestampString = "541522582.635412"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -229,13 +197,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KMPK/View Controllers/SearchViewController.swift"
-            timestampString = "541293762.6540411"
+            filePath = "KMPK/Controllers/BoardPreviewCollectionViewController.swift"
+            timestampString = "541961155.907027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "stationsCollectionView(_:didSelect:)"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -245,13 +213,125 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KMPK/View Controllers/SearchViewController.swift"
-            timestampString = "541293762.654624"
+            filePath = "KMPK/Controllers/BoardPreviewCollectionViewController.swift"
+            timestampString = "541961155.9074661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "stationsCollectionView(_:didSelect:)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "reloadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KMPK/Controllers/BoardDataProvider.swift"
+            timestampString = "541946672.580004"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "boardController(_:forStation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KMPK/Controllers/BoardDataProvider.swift"
+            timestampString = "541946672.5800689"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "callSubscribers(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KMPK/Controllers/BoardDataProvider.swift"
+            timestampString = "541946672.580132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "boardDataProvider(didUpdate:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KMPK/Controllers/BoardController.swift"
+            timestampString = "541961155.908268"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "boards(stationName:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KMPK.BoardController.boards(stationName: Swift.String) -&gt; ()"
+                  moduleName = "KMPK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/Controllers/BoardController.swift"
+                  timestampString = "541956237.240901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (KMPK.StationData) -&gt; Swift.String in KMPK.BoardController.boards(stationName: Swift.String) -&gt; ()"
+                  moduleName = "KMPK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/Controllers/BoardController.swift"
+                  timestampString = "541956237.243597"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KMPK/Controllers/StationController.swift"
+            timestampString = "541961155.908393"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "get(name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

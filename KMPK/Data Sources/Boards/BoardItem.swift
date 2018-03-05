@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BoardData {
+struct BoardItem {
     let line: String
     let direction: String
     let lastStation: String
@@ -30,4 +30,19 @@ struct BoardData {
         self.vehicleNumber = vehicleNumber
         self.poorGPS = poorGPS
     }
+}
+
+extension BoardItem: Equatable {
+    static func ==(lhs: BoardItem, rhs: BoardItem) -> Bool {
+        return lhs.line == rhs.line &&
+                lhs.direction == rhs.direction &&
+                lhs.lastStation == rhs.lastStation &&
+                lhs.nextStation == rhs.nextStation &&
+                lhs.estimatedMinutes == rhs.estimatedMinutes &&
+                lhs.delay == rhs.delay &&
+                lhs.scheduledDepartureTime == rhs.scheduledDepartureTime &&
+                lhs.vehicleNumber == rhs.vehicleNumber &&
+                lhs.poorGPS == rhs.poorGPS
+    }
+    
 }

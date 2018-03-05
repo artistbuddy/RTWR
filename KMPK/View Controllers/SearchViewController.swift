@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
     weak var delegate: SearchViewControllerDelegate?
     
     // MARK:- Private properties
-    private var searchController: SearchController!
+    private var searchController: SearchController! // TODO: implement SearchControllerProtocol
     private var resultsController: StationsCollectionViewController!
     
     private var needle = ""

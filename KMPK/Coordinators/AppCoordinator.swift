@@ -18,10 +18,33 @@ class AppCoordinator: RootViewCoordinator {
     // MARK:- Private properties
     private let window: UIWindow
     private lazy var navigationController: UINavigationController = {
-        let navigationController = UINavigationController()
-        navigationController.isNavigationBarHidden = true
+        let controller = UINavigationController()
+        controller.isNavigationBarHidden = false
         
-        return navigationController
+        // TODO: extract navigationBar
+        var statusBarHeight: CGFloat = 0
+        if UIApplication.shared.statusBarOrientation.isPortrait {
+            statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        } else {
+            statusBarHeight = UIApplication.shared.statusBarFrame.size.width
+        }
+        
+        var navigationBarHeight = controller.navigationBar.frame.height
+        
+        var frame = controller.view.bounds
+        frame.origin.x = 0
+        frame.origin.y = -statusBarHeight
+        frame.size.height = navigationBarHeight + statusBarHeight
+        
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blurView.frame = frame
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        controller.navigationBar.isTranslucent = true
+        controller.navigationBar.backgroundColor = UIColor.clear
+        controller.navigationBar.insertSubview(blurView, at: 0)
+    
+        return controller
     }()
     
     // MARK:- Initializers
@@ -36,7 +59,25 @@ class AppCoordinator: RootViewCoordinator {
         showUpdateScene()
     }
     
+//    let provider = BoardDataProvider()
+//    lazy var picker = {
+//        return BoardPickerCollectionViewController(stationIDs: ["29311", "10226"], stationController: StationController(database: Session.shared.database), dataSource: self.provider)
+//    }()
+    
     // MARK:- Scenes
+    private func showBoardPickerScene(stationName name: String) {
+        let s = StationController(database: Session.shared.database)
+        let b = BoardController(dataSource: BoardDataSource(api: Session.shared.api), controller: s)
+        let p = BoardItemsProvider(stationName: name, controller: b)
+        let c = BoardPickerCollectionViewController(stationName: name, stationController: s, dataSource: p)
+        let vm = BoardPickerViewModel(controller: c)
+        let vc = CollectionViewController(viewModel: vm)
+        
+        p.start()
+        
+        self.navigationController.pushViewController(vc, animated: true)
+    }
+    
     private func showUpdateScene() {
         let update = UpdateController()
         
@@ -82,6 +123,6 @@ extension AppCoordinator: SearchViewControllerDelegate {
     }
     
     func searchViewController(didSelectStationName name: String) {
-        // TODO: implement searchViewController(didSelectStationName:)
+        showBoardPickerScene(stationName: name)
     }
 }

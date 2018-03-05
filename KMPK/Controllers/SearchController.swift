@@ -14,15 +14,19 @@ protocol SearchControllerDelegate: class {
 }
 
 class SearchController {
+    // MARK:- Public properties
     weak var delegate: SearchControllerDelegate?
     
-    private let controller: StationController
+    // MARK:- Private properties
+    private let controller: StationControllerProtocol
     private var pendingSearch: DispatchWorkItem?
     
+    // MARK:- Initialization
     init(stationController controller: StationController) {
         self.controller = controller
     }
     
+    // MARK:- Public methods
     func search(query: String) {
         self.pendingSearch?.cancel()
 
