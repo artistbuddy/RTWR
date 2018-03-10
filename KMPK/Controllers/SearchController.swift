@@ -18,11 +18,11 @@ class SearchController {
     weak var delegate: SearchControllerDelegate?
     
     // MARK:- Private properties
-    private let controller: StationControllerProtocol
+    private let controller: StationsControllerProtocol
     private var pendingSearch: DispatchWorkItem?
     
     // MARK:- Initialization
-    init(stationController controller: StationController) {
+    init(stationController controller: StationsController) {
         self.controller = controller
     }
     

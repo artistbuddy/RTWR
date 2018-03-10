@@ -17,8 +17,8 @@
 		8F04D29E2039F89E0075552C /* UpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04D29C2039F89E0075552C /* UpdateController.swift */; };
 		8F1DB74D202E0B11002115C8 /* CSVDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */; };
 		8F1DB74E202E0B11002115C8 /* CSVDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */; };
-		8F242B822031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */; };
-		8F242B832031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */; };
+		8F242B822031DE48001A9FE2 /* DownloaderPolicyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F242B812031DE48001A9FE2 /* DownloaderPolicyController.swift */; };
+		8F242B832031DE48001A9FE2 /* DownloaderPolicyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F242B812031DE48001A9FE2 /* DownloaderPolicyController.swift */; };
 		8F39CB1A202DB27600F91C89 /* APICredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39CB19202DB27600F91C89 /* APICredential.swift */; };
 		8F39CB1B202DB27600F91C89 /* APICredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39CB19202DB27600F91C89 /* APICredential.swift */; };
 		8F39CB1D202DB4FC00F91C89 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F39CB1C202DB4FC00F91C89 /* Credentials.swift */; };
@@ -46,8 +46,8 @@
 		8F5B1201204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B11FF204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift */; };
 		8F5B1203204D680A00C850B4 /* BoardPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B1202204D680A00C850B4 /* BoardPickerViewModel.swift */; };
 		8F5B1204204D680A00C850B4 /* BoardPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B1202204D680A00C850B4 /* BoardPickerViewModel.swift */; };
-		8F5CA117203C681900A6C941 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CA116203C681900A6C941 /* StationController.swift */; };
-		8F5CA118203C681900A6C941 /* StationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CA116203C681900A6C941 /* StationController.swift */; };
+		8F5CA117203C681900A6C941 /* StationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CA116203C681900A6C941 /* StationsController.swift */; };
+		8F5CA118203C681900A6C941 /* StationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CA116203C681900A6C941 /* StationsController.swift */; };
 		8F6167E9201DF16C00FA3073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6167E8201DF16C00FA3073 /* AppDelegate.swift */; };
 		8F6167EB201DF16C00FA3073 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6167EA201DF16C00FA3073 /* SearchViewController.swift */; };
 		8F6167EE201DF16C00FA3073 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F6167EC201DF16C00FA3073 /* Main.storyboard */; };
@@ -80,12 +80,12 @@
 		8F7C0BAB20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */; };
 		8F7C0BAD2026112900CCAD63 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BAC2026112900CCAD63 /* SearchController.swift */; };
 		8F7C0BAE2026112900CCAD63 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C0BAC2026112900CCAD63 /* SearchController.swift */; };
-		8F85A971203C2C32008A21D1 /* BoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85A970203C2C32008A21D1 /* BoardDataSource.swift */; };
-		8F85A972203C2C32008A21D1 /* BoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85A970203C2C32008A21D1 /* BoardDataSource.swift */; };
+		8F85A971203C2C32008A21D1 /* BoardItemsDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85A970203C2C32008A21D1 /* BoardItemsDownloader.swift */; };
+		8F85A972203C2C32008A21D1 /* BoardItemsDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F85A970203C2C32008A21D1 /* BoardItemsDownloader.swift */; };
 		8FB36357202F8A530031E3E6 /* APICSVQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB36356202F8A530031E3E6 /* APICSVQuery.swift */; };
 		8FB36358202F8A530031E3E6 /* APICSVQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB36356202F8A530031E3E6 /* APICSVQuery.swift */; };
-		8FB65B7D2031B22600E9C564 /* StationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB65B7C2031B22600E9C564 /* StationDataSource.swift */; };
-		8FB65B7E2031B22600E9C564 /* StationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB65B7C2031B22600E9C564 /* StationDataSource.swift */; };
+		8FB65B7D2031B22600E9C564 /* StationsDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB65B7C2031B22600E9C564 /* StationsDownloader.swift */; };
+		8FB65B7E2031B22600E9C564 /* StationsDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB65B7C2031B22600E9C564 /* StationsDownloader.swift */; };
 		8FD42CE12046EC96002B7F18 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CE02046EC96002B7F18 /* Coordinator.swift */; };
 		8FD42CE22046EC96002B7F18 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CE02046EC96002B7F18 /* Coordinator.swift */; };
 		8FD42CE52046ECDC002B7F18 /* RootViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD42CE42046ECDC002B7F18 /* RootViewCoordinator.swift */; };
@@ -142,7 +142,7 @@
 		8F04D2932039D58C0075552C /* CoreStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStation.swift; sourceTree = "<group>"; };
 		8F04D29C2039F89E0075552C /* UpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateController.swift; sourceTree = "<group>"; };
 		8F1DB74C202E0B11002115C8 /* CSVDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDecoder.swift; sourceTree = "<group>"; };
-		8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePolicyController.swift; sourceTree = "<group>"; };
+		8F242B812031DE48001A9FE2 /* DownloaderPolicyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderPolicyController.swift; sourceTree = "<group>"; };
 		8F39CB19202DB27600F91C89 /* APICredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICredential.swift; sourceTree = "<group>"; };
 		8F39CB1C202DB4FC00F91C89 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		8F39CB1F202DB6B700F91C89 /* APIAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuth.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		8F5B11F9204C04D600C850B4 /* BoardPreviewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardPreviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		8F5B11FF204C63CE00C850B4 /* BoardEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F5B1202204D680A00C850B4 /* BoardPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPickerViewModel.swift; sourceTree = "<group>"; };
-		8F5CA116203C681900A6C941 /* StationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationController.swift; sourceTree = "<group>"; };
+		8F5CA116203C681900A6C941 /* StationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsController.swift; sourceTree = "<group>"; };
 		8F6167E5201DF16C00FA3073 /* KMPK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMPK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6167E8201DF16C00FA3073 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F6167EA201DF16C00FA3073 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -181,9 +181,9 @@
 		8F7C0BA6202608B900CCAD63 /* Queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		8F7C0BA920260FBA00CCAD63 /* RawDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F7C0BAC2026112900CCAD63 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		8F85A970203C2C32008A21D1 /* BoardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDataSource.swift; sourceTree = "<group>"; };
+		8F85A970203C2C32008A21D1 /* BoardItemsDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItemsDownloader.swift; sourceTree = "<group>"; };
 		8FB36356202F8A530031E3E6 /* APICSVQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICSVQuery.swift; sourceTree = "<group>"; };
-		8FB65B7C2031B22600E9C564 /* StationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDataSource.swift; sourceTree = "<group>"; };
+		8FB65B7C2031B22600E9C564 /* StationsDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsDownloader.swift; sourceTree = "<group>"; };
 		8FD42CE02046EC96002B7F18 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8FD42CE42046ECDC002B7F18 /* RootViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewCoordinator.swift; sourceTree = "<group>"; };
 		8FD42CE72046ECF1002B7F18 /* RootViewControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerProvider.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 				8FFAC5422027495700C3160A /* View Controllers */,
 				8FD42CF320488380002B7F18 /* Controllers */,
 				8FD944F820418F7300AE0EF1 /* Extensions */,
-				8FB65B7F2031B22A00E9C564 /* Data Sources */,
+				8FB65B7F2031B22A00E9C564 /* Downloaders */,
 				8FFAC54320275E8A00C3160A /* Collection Cells */,
 				8F7C0BA5202608A000CCAD63 /* API */,
 				8F44892720335A3D008D5E29 /* Database */,
@@ -331,15 +331,15 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		8FB65B7F2031B22A00E9C564 /* Data Sources */ = {
+		8FB65B7F2031B22A00E9C564 /* Downloaders */ = {
 			isa = PBXGroup;
 			children = (
-				8F242B812031DE48001A9FE2 /* DataSourcePolicyController.swift */,
+				8F242B812031DE48001A9FE2 /* DownloaderPolicyController.swift */,
 				8F7B909020372604000A9419 /* StationImporter.swift */,
 				8FD945082041A6C300AE0EF1 /* Stations */,
 				8FD42CF82048887F002B7F18 /* Boards */,
 			);
-			path = "Data Sources";
+			path = Downloaders;
 			sourceTree = "<group>";
 		};
 		8FD42CE32046EC9E002B7F18 /* Coordinators */ = {
@@ -360,7 +360,7 @@
 				8FD944EB20416D4C00AE0EF1 /* StationsCollectionViewController.swift */,
 				8FD42D05204B3749002B7F18 /* BoardPickerCollectionViewController.swift */,
 				8F5B11F5204C020500C850B4 /* BoardPreviewCollectionViewController.swift */,
-				8F5CA116203C681900A6C941 /* StationController.swift */,
+				8F5CA116203C681900A6C941 /* StationsController.swift */,
 				8F04D29C2039F89E0075552C /* UpdateController.swift */,
 				8FD42CFC20488952002B7F18 /* BoardController.swift */,
 				8FD42CFF204AB615002B7F18 /* BoardItemsProvider.swift */,
@@ -381,7 +381,7 @@
 		8FD42CF82048887F002B7F18 /* Boards */ = {
 			isa = PBXGroup;
 			children = (
-				8F85A970203C2C32008A21D1 /* BoardDataSource.swift */,
+				8F85A970203C2C32008A21D1 /* BoardItemsDownloader.swift */,
 				8FD42CF52048884D002B7F18 /* BoardItem.swift */,
 			);
 			path = Boards;
@@ -416,7 +416,7 @@
 		8FD945082041A6C300AE0EF1 /* Stations */ = {
 			isa = PBXGroup;
 			children = (
-				8FB65B7C2031B22600E9C564 /* StationDataSource.swift */,
+				8FB65B7C2031B22600E9C564 /* StationsDownloader.swift */,
 				8FD944FC2041A64400AE0EF1 /* StationData.swift */,
 				8FD944FF2041A67600AE0EF1 /* StationRoute.swift */,
 				8FD945052041A6B800AE0EF1 /* StationCoordinates.swift */,
@@ -564,13 +564,13 @@
 				8F04D29D2039F89E0075552C /* UpdateController.swift in Sources */,
 				8F39CB32202DEEA500F91C89 /* APIQuery.swift in Sources */,
 				8F7C0BAA20260FBA00CCAD63 /* RawDataCollectionViewCell.swift in Sources */,
-				8F5CA117203C681900A6C941 /* StationController.swift in Sources */,
-				8F242B822031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */,
+				8F5CA117203C681900A6C941 /* StationsController.swift in Sources */,
+				8F242B822031DE48001A9FE2 /* DownloaderPolicyController.swift in Sources */,
 				8F61681B201E27CE00FA3073 /* APIConfig.swift in Sources */,
 				8F44892C20335AAD008D5E29 /* DatabaseAccess.swift in Sources */,
 				8FD42CF62048884D002B7F18 /* BoardItem.swift in Sources */,
 				8FD42CE82046ECF1002B7F18 /* RootViewControllerProvider.swift in Sources */,
-				8F85A971203C2C32008A21D1 /* BoardDataSource.swift in Sources */,
+				8F85A971203C2C32008A21D1 /* BoardItemsDownloader.swift in Sources */,
 				8FD944F620418F7000AE0EF1 /* BatchUpdates.swift in Sources */,
 				8FD945062041A6B800AE0EF1 /* StationCoordinates.swift in Sources */,
 				8FD945032041A69500AE0EF1 /* StationType.swift in Sources */,
@@ -594,7 +594,7 @@
 				8FD944F2204179F500AE0EF1 /* StationCollectionViewCell.swift in Sources */,
 				8FD42D0A204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift in Sources */,
 				8F04D2962039D58C0075552C /* CoreStationRoute.swift in Sources */,
-				8FB65B7D2031B22600E9C564 /* StationDataSource.swift in Sources */,
+				8FB65B7D2031B22600E9C564 /* StationsDownloader.swift in Sources */,
 				8F6167E9201DF16C00FA3073 /* AppDelegate.swift in Sources */,
 				8FD42D06204B3749002B7F18 /* BoardPickerCollectionViewController.swift in Sources */,
 				8FD945002041A67600AE0EF1 /* StationRoute.swift in Sources */,
@@ -628,13 +628,13 @@
 				8F1DB74E202E0B11002115C8 /* CSVDecoder.swift in Sources */,
 				8F01F945202E26A8002614BB /* CSVDecoderTests.swift in Sources */,
 				8F39CB27202DC29500F91C89 /* APIProtocol.swift in Sources */,
-				8F5CA118203C681900A6C941 /* StationController.swift in Sources */,
-				8F242B832031DE48001A9FE2 /* DataSourcePolicyController.swift in Sources */,
+				8F5CA118203C681900A6C941 /* StationsController.swift in Sources */,
+				8F242B832031DE48001A9FE2 /* DownloaderPolicyController.swift in Sources */,
 				8FD42CF72048884D002B7F18 /* BoardItem.swift in Sources */,
 				8F616810201DF3F400FA3073 /* APIMethod.swift in Sources */,
 				8F44892D20335AAD008D5E29 /* DatabaseAccess.swift in Sources */,
 				8FD42CE92046ECF1002B7F18 /* RootViewControllerProvider.swift in Sources */,
-				8F85A972203C2C32008A21D1 /* BoardDataSource.swift in Sources */,
+				8F85A972203C2C32008A21D1 /* BoardItemsDownloader.swift in Sources */,
 				8FD944F720418F7000AE0EF1 /* BatchUpdates.swift in Sources */,
 				8FD945072041A6B800AE0EF1 /* StationCoordinates.swift in Sources */,
 				8FD945042041A69500AE0EF1 /* StationType.swift in Sources */,
@@ -657,7 +657,7 @@
 				8FD42D0B204B40A4002B7F18 /* BoardPickerCollectionViewCell.swift in Sources */,
 				8FD944F3204179F500AE0EF1 /* StationCollectionViewCell.swift in Sources */,
 				8F04D2972039D58C0075552C /* CoreStationRoute.swift in Sources */,
-				8FB65B7E2031B22600E9C564 /* StationDataSource.swift in Sources */,
+				8FB65B7E2031B22600E9C564 /* StationsDownloader.swift in Sources */,
 				8FD42D07204B3749002B7F18 /* BoardPickerCollectionViewController.swift in Sources */,
 				8F61681C201E27CE00FA3073 /* APIConfig.swift in Sources */,
 				8F5B1204204D680A00C850B4 /* BoardPickerViewModel.swift in Sources */,

@@ -9,7 +9,7 @@
 import Foundation
 
 /*
-enum DataSourceType {
+enum PolicyType {
     case openSource //free
     case comercial //consent required
     case unofficial //consent unknown
@@ -17,23 +17,23 @@ enum DataSourceType {
 }
 */
  
-enum DataSourcePolicy {
+enum DownloaderPolicy {
     case strict //open source and official
     case mixed //strict + unofficial
     case any
 }
 
-final class DataSourcePolicyController {
-    static let global = DataSourcePolicyController()
+final class DownloaderPolicyController {
+    static let global = DownloaderPolicyController()
     
-    let defaultPolicy: DataSourcePolicy = .strict
+    let defaultPolicy: DownloaderPolicy = .strict
     
     private init() { }
     
-    func getPolicy<T>(dataSource: T.Type) -> DataSourcePolicy {
-        switch dataSource {
-        case is StationDataSource.Type: return .mixed
-        case is BoardDataSource.Type: return .mixed
+    func getPolicy<T>(downloader: T.Type) -> DownloaderPolicy {
+        switch downloader {
+        case is StationsDownloader.Type: return .mixed
+        case is BoardItemsDownloader.Type: return .mixed
         default:
             return self.defaultPolicy
         }

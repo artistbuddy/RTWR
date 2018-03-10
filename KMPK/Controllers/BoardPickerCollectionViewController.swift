@@ -11,7 +11,7 @@ import UIKit
 class BoardPickerCollectionViewController: NSObject {
     // MARK:- Private properties
     private let provider: BoardItemsProviderProtocol
-    private let controller: StationControllerProtocol
+    private let controller: StationsControllerProtocol
     private let stationName: String
     private lazy var dataSource = [StationData]()
     
@@ -36,7 +36,7 @@ class BoardPickerCollectionViewController: NSObject {
     }()
     
     // MARK:- Initialization
-    init(stationName: String, stationController: StationControllerProtocol, dataSource: BoardItemsProviderProtocol) {
+    init(stationName: String, stationController: StationsControllerProtocol, dataSource: BoardItemsProviderProtocol) {
         self.stationName = stationName
         self.controller = stationController
         self.provider = dataSource

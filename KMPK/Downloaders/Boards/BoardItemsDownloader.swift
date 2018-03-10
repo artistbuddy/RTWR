@@ -8,22 +8,22 @@
 
 import Foundation
 
-class BoardDataSource {
+class BoardItemsDownloader {
     typealias Data = [BoardItem]
     
     // MARK:- Private properties
-    private let policyController: DataSourcePolicyController
+    private let policyController: DownloaderPolicyController
     private let api: APIProtocol
     
     // MARK:- Initialization
-    init(api: APIProtocol, policy: DataSourcePolicyController = DataSourcePolicyController.global) {
+    init(api: APIProtocol, policy: DownloaderPolicyController = DownloaderPolicyController.global) {
         self.api = api
         self.policyController = policy
     }
     
     // MARK:- Public methods
     func download(stationId: String, success: @escaping (Data) -> Void, failure: APIFailureCallback?) {
-        let policy = self.policyController.getPolicy(dataSource: type(of: self))
+        let policy = self.policyController.getPolicy(downloader: type(of: self))
         
         switch policy {
         case .mixed:

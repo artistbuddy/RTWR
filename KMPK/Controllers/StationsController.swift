@@ -9,14 +9,14 @@
 import Foundation
 import CoreData
 
-protocol StationControllerProtocol {
+protocol StationsControllerProtocol {
     func search(name: String) -> [StationData]
     func search(id: String) -> [StationData]
     func get(id: String) -> StationData?
     func get(name: String) -> [StationData]
 }
 
-class StationController {
+class StationsController {
     // MARK:- Private properties
     private let database: DatabaseAccess
     
@@ -48,7 +48,7 @@ class StationController {
 }
 
 // MARK:- StationControllerProtocol
-extension StationController: StationControllerProtocol {
+extension StationsController: StationsControllerProtocol {
     func search(name: String) -> [StationData] {
         let query = name.components(separatedBy: CharacterSet.alphanumerics.inverted)
         

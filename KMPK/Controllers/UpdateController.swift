@@ -44,8 +44,8 @@ class UpdateController: UpdateProtocol {
     // MARK:- Public methods
     func update() {
         
-        let dataSource = StationDataSource(api: self.api, policy: DataSourcePolicyController.global.getPolicy(dataSource: StationDataSource.self))
-        let importer = StationImporter(database: self.database, dataSource: dataSource)
+        let downloader = StationsDownloader(api: self.api, policy: DownloaderPolicyController.global.getPolicy(downloader: StationsDownloader.self))
+        let importer = StationImporter(database: self.database, downloader: downloader)
         
         importer.importData { (error) in
             if error == nil {

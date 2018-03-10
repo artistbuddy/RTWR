@@ -38,7 +38,7 @@ class SearchViewController: UIViewController {
         self.resultsController.delegate = self
         self.resultsController.dataSource = self
         
-        self.searchController = SearchController(stationController: StationController(database: Session.shared.database))
+        self.searchController = SearchController(stationController: StationsController(database: Session.shared.database))
         self.searchController.delegate = self.resultsController
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)

@@ -23,12 +23,12 @@ class BoardController {
     weak var delegate: BoardControllerDelegate?
     
     // MARK:- Private properties
-    private let dataSource: BoardDataSource
-    private let controller: StationController
+    private let downloader: BoardItemsDownloader
+    private let controller: StationsController
     
     // MARK:- Initialization
-    init(dataSource: BoardDataSource, controller: StationController) {
-        self.dataSource = dataSource
+    init(downloader: BoardItemsDownloader, controller: StationsController) {
+        self.downloader = downloader
         self.controller = controller
     }
 }
@@ -36,7 +36,7 @@ class BoardController {
 // MARK:- BoardControllerProtocol
 extension BoardController: BoardControllerProtocol {
     func board(stationID id: String) {
-        self.dataSource.download(stationId: id, success: { (result) in
+        self.downloader.download(stationId: id, success: { (result) in
             self.delegate?.boardController(result, forStation: id)
         }, failure: nil)
     }

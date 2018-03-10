@@ -38,13 +38,13 @@ protocol DataSourceImporter {
 
 class StationImporter: DataSourceImporter {
     private let database: DatabaseAccess
-    private let dataSource: StationDataSource
+    private let downloader: StationsDownloader
     
     private var stations: [StationData]?
     
-    init(database: DatabaseAccess, dataSource: StationDataSource) {
+    init(database: DatabaseAccess, downloader: StationsDownloader) {
         self.database = database
-        self.dataSource = dataSource
+        self.downloader = downloader
     }
     
     func importData(complition: ComplitionBlock?) {
@@ -65,7 +65,7 @@ class StationImporter: DataSourceImporter {
     }
     
     private func download(completion: ComplitionBlock?) {
-        self.dataSource.download(success: { [weak self] (data) in
+        self.downloader.download(success: { [weak self] (data) in
             self?.stations = data
             completion?(nil)
         }) { (failure) in

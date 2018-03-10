@@ -8,13 +8,13 @@
 
 import Foundation
 
-class StationDataSource {
+class StationsDownloader {
     typealias Data = [StationData]
     
-    let policy: DataSourcePolicy
+    let policy: DownloaderPolicy
     let api: APIProtocol
     
-    init(api: APIProtocol, policy: DataSourcePolicy = DataSourcePolicyController.global.defaultPolicy) {
+    init(api: APIProtocol, policy: DownloaderPolicy = DownloaderPolicyController.global.defaultPolicy) {
         self.api = api
         self.policy = policy
     }
