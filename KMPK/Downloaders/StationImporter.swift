@@ -38,11 +38,11 @@ protocol DataSourceImporter {
 
 class StationImporter: DataSourceImporter {
     private let database: DatabaseAccess
-    private let downloader: StationsDownloader
+    private let downloader: StationsDownloadProtocol
     
     private var stations: [StationData]?
     
-    init(database: DatabaseAccess, downloader: StationsDownloader) {
+    init(database: DatabaseAccess, downloader: StationsDownloadProtocol) {
         self.database = database
         self.downloader = downloader
     }

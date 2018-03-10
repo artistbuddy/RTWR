@@ -67,7 +67,7 @@ class AppCoordinator: RootViewCoordinator {
     // MARK:- Scenes
     private func showBoardPickerScene(stationName name: String) {
         let s = StationsController(database: Session.shared.database)
-        let b = BoardController(downloader: BoardItemsDownloader(api: Session.shared.api), controller: s)
+        let b = BoardController(controller: s)
         let p = BoardItemsProvider(stationName: name, controller: b)
         let c = BoardPickerCollectionViewController(stationName: name, stationController: s, dataSource: p)
         let vm = BoardPickerViewModel(controller: c)

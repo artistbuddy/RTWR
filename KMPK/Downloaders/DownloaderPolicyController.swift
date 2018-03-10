@@ -23,8 +23,12 @@ enum DownloaderPolicy {
     case any
 }
 
-final class DownloaderPolicyController {
-    static let global = DownloaderPolicyController()
+protocol DownloaderPolicyProtocol {
+    func getPolicy<T>(downloader: T.Type) -> DownloaderPolicy
+}
+
+final class DownloaderPolicyController: DownloaderPolicyProtocol {
+    static let global: DownloaderPolicyProtocol = DownloaderPolicyController()
     
     let defaultPolicy: DownloaderPolicy = .strict
     
@@ -32,8 +36,8 @@ final class DownloaderPolicyController {
     
     func getPolicy<T>(downloader: T.Type) -> DownloaderPolicy {
         switch downloader {
-        case is StationsDownloader.Type: return .mixed
         case is BoardItemsDownloader.Type: return .mixed
+        case is StationsDownloader.Type: return .mixed
         default:
             return self.defaultPolicy
         }

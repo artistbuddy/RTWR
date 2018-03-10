@@ -8,82 +8,48 @@
 
 import Foundation
 
+protocol StationsDownloadProtocol {
+    func download(success: @escaping APIQueryCallback<[StationData]>, failure: APIFailureCallback?)
+}
+
 class StationsDownloader {
-    typealias Data = [StationData]
+    // MARK:- Private properties
+    private var api: APIProtocol = Session.shared.api
     
-    let policy: DownloaderPolicy
-    let api: APIProtocol
+    private let policy: DownloaderPolicy
     
-    init(api: APIProtocol, policy: DownloaderPolicy = DownloaderPolicyController.global.defaultPolicy) {
-        self.api = api
+    // MARK:- Initialization
+    init(policy: DownloaderPolicy) {
         self.policy = policy
     }
     
-    func download(success: @escaping (Data) -> Void, failure: APIFailureCallback?) {
-        switch policy {
-        case .mixed:
-            mixedPolicy(success: success, failure: failure)
-        default:
-            // should be fatalError(), data source need to be transparent
-            failure?(APIFailure.otherError(description: "Not found \(policy) policy", userInfo: nil))
-        }
+    convenience init() {
+        self.init(policy: DownloaderPolicyController.global.getPolicy(downloader: type(of: self)))
     }
-
-    private func mixedPolicy(success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?) {
-        let tquery = TAllStationsQuery()
-        let opquery = OPStationPositionsQuery()
+    
+    // MARK:- Public methods
+    func setAPI(_ api: APIProtocol) -> StationsDownloader {
+        self.api = api
         
-        var tdata: [TStationShort]?
-        var opdata: [OPStationPositions]?
-        
-        let group = DispatchGroup()
-        
-        group.enter()
-        self.api.execute(tquery, successJSON: { (result) in
-            tdata = result
-            group.leave()
-        }) { (reason) in
-            failure?(reason)
-            group.leave()
-        }
-        
-        group.enter()
-        self.api.execute(opquery, successCSV: { (result) in
-            opdata = result
-            group.leave()
-        }) { (reason) in
-            failure?(reason)
-            group.leave()
-        }
-        
-        group.notify(queue: .global(qos: .background)) {
-            guard let tdata = tdata, var opdata = opdata else {
-                failure?(APIFailure.invalidData)
-                return
-            }
-            
-            var output = [StationData]()
-            
-            for t in tdata {
-                
-                if let index = opdata.index(where: { String(describing: $0.id) == t.symbol }) {
-                    let op = opdata[index]
-                    opdata.remove(at: index)
-                    
-                    guard let type = StationType(t: op.type) else {
-                        APILog.debug("StationDataSource invalid op data \(op)")
-                        break
-                    }
-                    
-                    let result = StationData(id: t.symbol, name: t.name, type: type, coordinates: StationCoordinates(lat: op.lat, long: op.long), routes: t.lines.map{ StationRoute(t: $0) })
-                    output.append(result)
-                    
-                } else {
-                    APILog.debug("StationDataSource not found op station \(t.symbol)")
-                }
-            }
-
-            success(output)
+        return self
+    }
+    
+    func build() throws -> StationsDownloadProtocol {
+        switch self.policy {
+        case .mixed:
+            return OPTStationsDownload(api: self.api)
+        default:
+            fatalError("Policy \(self.policy) not implemented")
         }
     }
 }
+
+// MARK:- Error
+extension StationsDownloader {
+    enum StationsDownloaderError: Error {
+        case invalidAPI
+    }
+}
+
+
+

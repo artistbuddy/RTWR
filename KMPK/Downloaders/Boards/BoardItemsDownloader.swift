@@ -1,5 +1,5 @@
 //
-//  BoardDataSource.swift
+//  BoardItemsDownloader.swift
 //  KMPK
 //
 //  Created by Karol Bukowski on 20.02.2018.
@@ -8,77 +8,84 @@
 
 import Foundation
 
+protocol BoardItemsDownloadProtocol {
+    func download(success: @escaping APIQueryCallback<[BoardItem]>, failure: APIFailureCallback?)
+}
+
 class BoardItemsDownloader {
-    typealias Data = [BoardItem]
-    
     // MARK:- Private properties
-    private let policyController: DownloaderPolicyController
-    private let api: APIProtocol
+    private var stationID: String?
+    private var api: APIProtocol = Session.shared.api
+    private var continouesDownload: Bool = false
+    private var useCache: Bool = true
+    
+    private let policy: DownloaderPolicy
     
     // MARK:- Initialization
-    init(api: APIProtocol, policy: DownloaderPolicyController = DownloaderPolicyController.global) {
-        self.api = api
-        self.policyController = policy
+    init(policy: DownloaderPolicy) {
+        self.policy = policy
+    }
+    
+    convenience init() {
+        self.init(policy: DownloaderPolicyController.global.getPolicy(downloader: type(of: self)))
     }
     
     // MARK:- Public methods
-    func download(stationId: String, success: @escaping (Data) -> Void, failure: APIFailureCallback?) {
-        let policy = self.policyController.getPolicy(downloader: type(of: self))
+    func stationID(_ id: String) -> BoardItemsDownloader {
+        self.stationID = id
         
-        switch policy {
+        return self
+    }
+    
+    func setAPI(_ api: APIProtocol) -> BoardItemsDownloader {
+        self.api = api
+        
+        return self
+    }
+    
+    func continouesDownload(_ continoues: Bool) -> BoardItemsDownloader {
+        self.continouesDownload = continoues
+        
+        return self
+    }
+    
+    func useCache(_ cache: Bool) -> BoardItemsDownloader {
+        self.useCache = cache
+        
+        return self
+    }
+    
+    func build() throws -> BoardItemsDownloadProtocol {
+        guard let id = self.stationID else {
+            throw BoardItemsDownloaderError.invalidStationID
+        }
+        
+        var downloader: BoardItemsDownloadProtocol!
+        
+        switch self.policy {
         case .mixed:
-            mixedPolicy(stationId: stationId, success: success, failure: failure)
+            downloader = TBoardItemsDownload(stationID: id, api: self.api)
         default:
-            // should be fatalError(), data source need to be transparent
-            failure?(APIFailure.otherError(description: "Not found \(policy) policy", userInfo: nil))
-        }
-    }
-    
-    // MARK:- Private methods
-    private func mixedPolicy(stationId: String, success: @escaping APIQueryCallback<Data>, failure: APIFailureCallback?) {
-        
-        let query = TStationBoardQuery(id: stationId)
-        
-        self.api.execute(query, successJSON: { (result) in            
-            var output = [BoardItem]()
-            
-            guard let boards = result.first?.value.board else {
-                failure?(APIFailure.invalidData)
-                return
-            }
-                
-            for board in boards {
-                let gps = (board.lag > 50_000) ? true : false
-                var delay = 0
-                var estimatedMinutes = 0
-                
-                if board.routeBegin {
-                    delay = 0
-                    estimatedMinutes = board.minuteCount + Int(board.delay.magnitude)
-                } else {
-                    delay = board.delay
-                    estimatedMinutes = board.minuteCount
-                }
-                
-                let data = BoardItem(line: board.line,
-                                     direction: board.direction,
-                                     lastStation: board.currentStop.name,
-                                     nextStation: board.nextStop.name,
-                                     estimatedMinutes: estimatedMinutes,
-                                     delay: delay,
-                                     scheduledDepartureTime: board.scheduledDepartureTime,
-                                     vehicleNumber: board.code,
-                                     poorGPS: gps)
-                
-                output.append(data)
-            }
-            
-            success(output.sorted{ $0.estimatedMinutes < $1.estimatedMinutes })
-            
-        }) { (reason) in
-            failure?(reason)
+            fatalError("Policy \(self.policy) not implemented")
         }
         
+        if self.useCache {
+            downloader = DownloaderCache(downloader: downloader)
+        }
+        
+        if self.continouesDownload {
+            downloader = DownloadRepeater(downloader: downloader)
+        }
+        
+        return downloader
     }
-    
 }
+
+// MARK:- Error
+extension BoardItemsDownloader {
+    enum BoardItemsDownloaderError: Error {
+        case invalidStationID
+        case invalidAPI
+    }
+}
+

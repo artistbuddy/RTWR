@@ -277,54 +277,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KMPK/Controllers/BoardController.swift"
-            timestampString = "541961155.908268"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "boards(stationName:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "KMPK.BoardController.boards(stationName: Swift.String) -&gt; ()"
-                  moduleName = "KMPK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/Controllers/BoardController.swift"
-                  timestampString = "541956237.240901"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "156">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (KMPK.StationData) -&gt; Swift.String in KMPK.BoardController.boards(stationName: Swift.String) -&gt; ()"
-                  moduleName = "KMPK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/Controllers/BoardController.swift"
-                  timestampString = "541956237.243597"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "92">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "KMPK/Controllers/StationController.swift"
             timestampString = "541961155.908393"
             startingColumnNumber = "9223372036854775807"

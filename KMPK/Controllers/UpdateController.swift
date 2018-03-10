@@ -44,15 +44,19 @@ class UpdateController: UpdateProtocol {
     // MARK:- Public methods
     func update() {
         
-        let downloader = StationsDownloader(api: self.api, policy: DownloaderPolicyController.global.getPolicy(downloader: StationsDownloader.self))
-        let importer = StationImporter(database: self.database, downloader: downloader)
-        
-        importer.importData { (error) in
-            if error == nil {
-                UserDefaults.standard.set(UpdateController.dateFormatter.string(from: Date()), forKey: UpdateController.updateKey)
-            }
+        do {
+            let downloader = try StationsDownloader().setAPI(Session.shared.api).build()
+            let importer = StationImporter(database: self.database, downloader: downloader)
             
-            self.delegate?.updateControllerDidFinish()
+            importer.importData { (error) in
+                if error == nil {
+                    UserDefaults.standard.set(UpdateController.dateFormatter.string(from: Date()), forKey: UpdateController.updateKey)
+                }
+                
+                self.delegate?.updateControllerDidFinish()
+            }
+        } catch let error {
+            APILog.debug(error)
         }
         
     }

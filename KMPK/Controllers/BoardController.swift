@@ -23,12 +23,10 @@ class BoardController {
     weak var delegate: BoardControllerDelegate?
     
     // MARK:- Private properties
-    private let downloader: BoardItemsDownloader
     private let controller: StationsController
     
     // MARK:- Initialization
-    init(downloader: BoardItemsDownloader, controller: StationsController) {
-        self.downloader = downloader
+    init(controller: StationsController) {
         self.controller = controller
     }
 }
@@ -36,7 +34,7 @@ class BoardController {
 // MARK:- BoardControllerProtocol
 extension BoardController: BoardControllerProtocol {
     func board(stationID id: String) {
-        self.downloader.download(stationId: id, success: { (result) in
+        try? BoardItemsDownloader().setAPI(Session.shared.api).stationID(id).useCache(false).build().download(success: { (result) in
             self.delegate?.boardController(result, forStation: id)
         }, failure: nil)
     }
