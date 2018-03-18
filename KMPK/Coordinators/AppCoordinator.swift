@@ -61,19 +61,15 @@ class AppCoordinator: RootViewCoordinator {
     
 //    let provider = BoardDataProvider()
 //    lazy var picker = {
-//        return BoardPickerCollectionViewController(stationIDs: ["29311", "10226"], stationController: StationController(database: Session.shared.database), dataSource: self.provider)
+//        return OldBoardPickerCollectionViewController(stationIDs: ["29311", "10226"], stationController: StationController(database: Session.shared.database), dataSource: self.provider)
 //    }()
     
     // MARK:- Scenes
     private func showBoardPickerScene(stationName name: String) {
         let s = StationsController(database: Session.shared.database)
-        let b = BoardController(controller: s)
-        let p = BoardItemsProvider(stationName: name, controller: b)
-        let c = BoardPickerCollectionViewController(stationName: name, stationController: s, dataSource: p)
+        let c = BoardPickerCollectionController(stationName: name, stationsController: s)
         let vm = BoardPickerViewModel(controller: c)
         let vc = CollectionViewController(viewModel: vm)
-        
-        p.start()
         
         self.navigationController.pushViewController(vc, animated: true)
     }

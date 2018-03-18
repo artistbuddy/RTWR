@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BoardPickerCollectionViewController: NSObject {
+class OldBoardPickerCollectionViewController: NSObject {
     // MARK:- Private properties
-    private let provider: BoardItemsProviderProtocol
+    private let provider: OldBoardItemsProviderProtocol
     private let controller: StationsControllerProtocol
     private let stationName: String
     private lazy var dataSource = [StationData]()
@@ -36,7 +36,7 @@ class BoardPickerCollectionViewController: NSObject {
     }()
     
     // MARK:- Initialization
-    init(stationName: String, stationController: StationsControllerProtocol, dataSource: BoardItemsProviderProtocol) {
+    init(stationName: String, stationController: StationsControllerProtocol, dataSource: OldBoardItemsProviderProtocol) {
         self.stationName = stationName
         self.controller = stationController
         self.provider = dataSource
@@ -55,7 +55,7 @@ class BoardPickerCollectionViewController: NSObject {
 }
 
 // MARK:- UICollectionViewDataSource
-extension BoardPickerCollectionViewController: UICollectionViewDataSource {
+extension OldBoardPickerCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return self.dataSource.count
@@ -69,15 +69,15 @@ extension BoardPickerCollectionViewController: UICollectionViewDataSource {
 
         let data = self.dataSource[indexPath.row]
         
-        cell.controller = BoardPreviewCollectionViewController(stationID: data.id, dataSource: self.provider)
-        cell.title = data.name + data.id
+        //cell.controller = BoardPreviewCollectionViewController(stationID: data.id, dataSource: self.provider)
+        //cell.title = data.name + data.id
         
         return cell
     }
 }
 
 // MARK:- UICollectionViewDelegateFlowLayout
-extension BoardPickerCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension OldBoardPickerCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width - self.flowLayout.sectionInset.left - self.flowLayout.sectionInset.right - collectionView.contentInset.left - collectionView.contentInset.right - 10
         

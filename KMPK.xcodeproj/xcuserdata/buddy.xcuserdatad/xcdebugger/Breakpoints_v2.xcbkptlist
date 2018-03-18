@@ -287,5 +287,100 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KMPK/Data Providers/BoardItemsDataProvider.swift"
+            timestampString = "543108002.1326621"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "itemAt(indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KMPK/Downloaders/DownloaderCache.swift"
+            timestampString = "543065274.32435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "download(success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KMPK/Downloaders/DownloadRepeater.swift"
+            timestampString = "543108002.133069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "DownloadRepeater"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KMPK.DownloadRepeater.(timer in _8B68C406E205C511FD573E147E6F60D9).getter : Swift.Optional&lt;__ObjC.DispatchSourceTimer&gt;"
+                  moduleName = "KMPK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/Downloaders/DownloadRepeater.swift"
+                  timestampString = "543097455.819284"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KMPK.DownloadRepeater.(timer in _8B68C406E205C511FD573E147E6F60D9).setter : Swift.Optional&lt;__ObjC.DispatchSourceTimer&gt;"
+                  moduleName = "KMPK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/Downloaders/DownloadRepeater.swift"
+                  timestampString = "543097455.8219481"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KMPK.DownloadRepeater.init(downloader: KMPK.BoardItemsDownloadProtocol) -&gt; KMPK.DownloadRepeater"
+                  moduleName = "KMPK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/buddy/Github/KMPK/KMPK/Downloaders/DownloadRepeater.swift"
+                  timestampString = "543097455.824666"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "548">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

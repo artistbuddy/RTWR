@@ -48,12 +48,12 @@ class UpdateController: UpdateProtocol {
             let downloader = try StationsDownloader().setAPI(Session.shared.api).build()
             let importer = StationImporter(database: self.database, downloader: downloader)
             
-            importer.importData { (error) in
+            importer.importData { [weak self] (error) in
                 if error == nil {
                     UserDefaults.standard.set(UpdateController.dateFormatter.string(from: Date()), forKey: UpdateController.updateKey)
                 }
                 
-                self.delegate?.updateControllerDidFinish()
+                self?.delegate?.updateControllerDidFinish()
             }
         } catch let error {
             APILog.debug(error)

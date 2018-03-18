@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BoardItemsDownloadProtocol {
+protocol BoardItemsDownloadProtocol: class {
     func download(success: @escaping APIQueryCallback<[BoardItem]>, failure: APIFailureCallback?)
 }
 
@@ -85,7 +85,6 @@ class BoardItemsDownloader {
 extension BoardItemsDownloader {
     enum BoardItemsDownloaderError: Error {
         case invalidStationID
-        case invalidAPI
     }
 }
 

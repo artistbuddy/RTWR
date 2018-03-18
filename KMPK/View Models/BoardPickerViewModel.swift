@@ -9,9 +9,9 @@
 import UIKit
 
 class BoardPickerViewModel {
-    let controller: BoardPickerCollectionViewController
+    let controller: BoardPickerCollectionController
     
-    init(controller: BoardPickerCollectionViewController) {
+    init(controller: BoardPickerCollectionController) {
         self.controller = controller
     }
 }

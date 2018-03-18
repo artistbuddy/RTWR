@@ -16,16 +16,7 @@ class DownloadRepeater {
     
     // MARK: Timer
     private lazy var queue = DispatchQueue(label: "com.kb.kmpk.downloadRepeater", attributes: .concurrent)
-    private lazy var timer: DispatchSourceTimer = {
-        let timer = DispatchSource.makeTimerSource(queue: queue)
-        
-        timer.schedule(deadline: .now(), repeating: .seconds(7), leeway: .seconds(1))
-        timer.setEventHandler { //TODO weak self
-            self.download()
-        }
-        
-        return timer
-    }()
+    private var timer: DispatchSourceTimer?
     
     // MARK:- Initialization
     init(downloader: BoardItemsDownloadProtocol) {
@@ -33,16 +24,33 @@ class DownloadRepeater {
     }
     
     deinit {
-        timer.cancel()
+        APILog.debug("DownloadRepeater deinit")
+        stopTimer()
     }
     
     // MARK:- Private methods
+    private func startTimer() {
+        self.timer = DispatchSource.makeTimerSource(queue: self.queue)
+        
+        self.timer?.schedule(deadline: .now(), repeating: .seconds(7), leeway: .seconds(1))
+        self.timer?.setEventHandler { [weak self] in
+            self?.download()
+        }
+        
+        self.timer?.resume()
+    }
+    
+    private func stopTimer() {
+        self.timer?.cancel()
+        self.timer = nil
+    }
+    
     private func download() {
         guard let successCallback = self.successCallback else {
             return
         }
         
-        self.download(success: successCallback, failure: self.failureCallback)
+        self.downloader.download(success: successCallback, failure: failureCallback)
     }
 }
 
@@ -52,7 +60,6 @@ extension DownloadRepeater: BoardItemsDownloadProtocol {
         self.successCallback = success
         self.failureCallback = failure
         
-        self.timer.cancel()
-        self.timer.resume()
+        startTimer()
     }
 }

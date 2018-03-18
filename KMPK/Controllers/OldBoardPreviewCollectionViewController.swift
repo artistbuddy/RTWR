@@ -1,5 +1,5 @@
 //
-//  BoardPreviewCollectionViewController.swift
+//  OldBoardPreviewCollectionViewController.swift
 //  KMPK
 //
 //  Created by Karol Bukowski on 04.03.2018.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BoardPreviewCollectionViewController: NSObject {
+class OldBoardPreviewCollectionViewController: NSObject {
     // MARK:- Private properties
     private let stationID: String
-    private let provider: BoardItemsProviderProtocol
+    private let provider: OldBoardItemsProviderProtocol
     private var dataSource = [BoardItem]()
     
     private lazy var flowLayout: UICollectionViewFlowLayout = {
@@ -36,7 +36,7 @@ class BoardPreviewCollectionViewController: NSObject {
     }()
     
     // MARK:- Initialization
-    init(stationID: String, dataSource: BoardItemsProviderProtocol) {
+    init(stationID: String, dataSource: OldBoardItemsProviderProtocol) {
         self.stationID = stationID
         self.provider = dataSource
         
@@ -103,7 +103,7 @@ class BoardPreviewCollectionViewController: NSObject {
 }
 
 // MARK:- UICollectionViewDataSource
-extension BoardPreviewCollectionViewController: UICollectionViewDataSource {
+extension OldBoardPreviewCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return numberOfItemsInSection(section)
@@ -116,7 +116,7 @@ extension BoardPreviewCollectionViewController: UICollectionViewDataSource {
 }
 
 // MARK:- UICollectionViewDelegateFlowLayout
-extension BoardPreviewCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension OldBoardPreviewCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width - self.flowLayout.sectionInset.left - self.flowLayout.sectionInset.right - collectionView.contentInset.left - collectionView.contentInset.right - 10
         

@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol BoardItemsProviderProtocol: class {
+protocol OldBoardItemsProviderProtocol: class {
     func boardItemsProvider(stationID id: String) -> [BoardItem]
     func boardItemsProvider(didUpdate: @escaping (_ stationId: String) -> Void)
 }
 
-class BoardItemsProvider {
+class OldBoardItemsProvider {
     // MARK:- Private properties
     private let controller: BoardController
     private let station: String
@@ -68,7 +68,7 @@ class BoardItemsProvider {
 }
 
 // MARK:- BoardDataProviderProtocol
-extension BoardItemsProvider: BoardItemsProviderProtocol {
+extension OldBoardItemsProvider: OldBoardItemsProviderProtocol {
     func boardItemsProvider(stationID id: String) -> [BoardItem] {
         guard let data = self.data[id] else {
             return []
@@ -83,7 +83,7 @@ extension BoardItemsProvider: BoardItemsProviderProtocol {
 }
 
 // MARK:- BoardControllerDelegate
-extension BoardItemsProvider: BoardControllerDelegate {
+extension OldBoardItemsProvider: BoardControllerDelegate {
     func boardController(_ board: [BoardItem], forStation id: String) {
         self.data[id] = board
         callSubscribers(id: id)
